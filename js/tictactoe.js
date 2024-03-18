@@ -2,6 +2,7 @@
 let activePlayer = 'X';
 //This array stores an array of moves. We use this to determine win conditions.
 let selectedSquares = [];
+let restartBtn = document.getElementById("restart");
 
 //This function is for placing an x or o in a square.
 function placeXOrO(squareNumber) {
@@ -83,7 +84,7 @@ function checkWinConditions() {
     // X 2, 5, 8 condition.
     else if (arrayIncludes('2X', '5X', '8X')) { drawWinLine(508, 50, 508, 558); }
     // X 6, 4, 2 condition.
-    else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine(100, 100, 520, 520); }
+    else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine(100, 508, 510, 90); }
     // X 0, 4, 8 condition.
     else if (arrayIncludes('0X', '4X', '8X')) { drawWinLine(100, 100, 520, 520); }
     // O 0, 1, 2 condition.
@@ -97,7 +98,7 @@ function checkWinConditions() {
      // O 1, 4, 7 condition.
     else if (arrayIncludes('1O', '4O', '7O')) { drawWinLine(304, 50, 304, 558); }
     // O 2, 5, 8 condition.
-    else if (arrayIncludes('2O', '5O', '8O')) {drawWinLine(508,50, 508, 558); }
+    else if (arrayIncludes('2O', '5O', '8O')) {drawWinLine(508, 50, 508, 558); }
     // O 6, 4, 2 condition.
     else if (arrayIncludes('6O', '4O', '2O')) { drawWinLine(100, 508, 510, 90); }
     // O 0, 4, 8 condition.
@@ -216,3 +217,7 @@ function resetGame() {
     }
     selectedSquares = [];
 }
+
+restartBtn.addEventListener("click", () => {
+    setTimeout(function() { resetGame(); }, 1000);
+  });
