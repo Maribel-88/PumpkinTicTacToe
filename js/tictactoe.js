@@ -3,6 +3,9 @@ let activePlayer = 'X';
 //This array stores an array of moves. We use this to determine win conditions.
 let selectedSquares = [];
 let restartBtn = document.getElementById("restart");
+let msgRef = document.getElementById("message");
+let newgameBtn = document.getElementById("new-game"); 
+let popupRef = document.querySelector(".popup");
 
 //This function is for placing an x or o in a square.
 function placeXOrO(squareNumber) {
@@ -25,6 +28,7 @@ function placeXOrO(squareNumber) {
         selectedSquares.push(squareNumber + activePlayer);
         //This calls a fucntion to check for any win conditions.
         checkWinConditions();
+        
         //This condtion is for changing the active player.
         if  (activePlayer==='X') {
         //If active player is 'X' change it to 'O'.    
@@ -68,44 +72,55 @@ function placeXOrO(squareNumber) {
         }
     }
 }
+
+const xWins = () => {
+    popupRef.classList.remove("hide");
+    msgRef.innerHTML = "&#x1F389; <br> 'X' Wins";
+};
+
+const oWins = () => {
+    popupRef.classList.remove("hide");
+    msgRef.innerHTML = "&#x1F389; <br> 'O' Wins";
+};
 //This function parses the selectedSquares array to search for the win conditions.
 //drawWinLine function is called to draw line if condition is met.
 function checkWinConditions() {
     //X 0, 1, 2 condition.
-    if (arrayIncludes('0X', '1X', '2X',)) { drawWinLine(50, 100, 558, 100); }
+    if (arrayIncludes('0X', '1X', '2X',)) { drawWinLine(50, 100, 558, 100);  xWins();  }
     // X 3, 4, 5 condition.
-    else if (arrayIncludes('3X', '4X', '5X')) { drawWinLine(50, 304, 558, 304); }
+    else if (arrayIncludes('3X', '4X', '5X')) { drawWinLine(50, 304, 558, 304);  xWins(); }
     // X 6, 7, 8 condition.
-    else if (arrayIncludes('6X', '7X', '8X')) { drawWinLine(50, 508, 558, 508); }
+    else if (arrayIncludes('6X', '7X', '8X')) { drawWinLine(50, 508, 558, 508);  xWins(); }
     // X 0, 3, 6 condition.
-    else if (arrayIncludes('0X', '3X', '6X')) { drawWinLine(100, 50, 100, 558); }
+    else if (arrayIncludes('0X', '3X', '6X')) { drawWinLine(100, 50, 100, 558);  xWins(); }
     // X 1, 4, 7 condition.
-    else if (arrayIncludes('1X', '4X', '7X')) { drawWinLine(304, 50, 304, 558); }
+    else if (arrayIncludes('1X', '4X', '7X')) { drawWinLine(304, 50, 304, 558);  xWins();}
     // X 2, 5, 8 condition.
-    else if (arrayIncludes('2X', '5X', '8X')) { drawWinLine(508, 50, 508, 558); }
+    else if (arrayIncludes('2X', '5X', '8X')) { drawWinLine(508, 50, 508, 558);  xWins();}
     // X 6, 4, 2 condition.
-    else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine(100, 508, 510, 90); }
+    else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine(100, 508, 510, 90);  xWins();}
     // X 0, 4, 8 condition.
-    else if (arrayIncludes('0X', '4X', '8X')) { drawWinLine(100, 100, 520, 520); }
+    else if (arrayIncludes('0X', '4X', '8X')) { drawWinLine(100, 100, 520, 520);  xWins();}
     // O 0, 1, 2 condition.
-    else if (arrayIncludes('0O', '1O', '2O')) { drawWinLine(50, 100, 558, 100); }
+    else if (arrayIncludes('0O', '1O', '2O')) { drawWinLine(50, 100, 558, 100); oWins();}
     // O 3, 4, 5 condition.
-    else if (arrayIncludes('3O', '4O', '5O')) { drawWinLine(50, 304, 558, 304); }
+    else if (arrayIncludes('3O', '4O', '5O')) { drawWinLine(50, 304, 558, 304); oWins(); }
     //O 6, 7, 8 condition.
-    else if (arrayIncludes('6O', '7O', '8O')) { drawWinLine(50, 508, 558, 508); }
+    else if (arrayIncludes('6O', '7O', '8O')) { drawWinLine(50, 508, 558, 508); oWins();}
     // O 0, 3, 6 condition.
-    else if (arrayIncludes('0O', '3O', '6O')) { drawWinLine(100, 50, 100, 558); }
+    else if (arrayIncludes('0O', '3O', '6O')) { drawWinLine(100, 50, 100, 558); oWins();}
      // O 1, 4, 7 condition.
-    else if (arrayIncludes('1O', '4O', '7O')) { drawWinLine(304, 50, 304, 558); }
+    else if (arrayIncludes('1O', '4O', '7O')) { drawWinLine(304, 50, 304, 558); oWins();}
     // O 2, 5, 8 condition.
-    else if (arrayIncludes('2O', '5O', '8O')) {drawWinLine(508, 50, 508, 558); }
+    else if (arrayIncludes('2O', '5O', '8O')) {drawWinLine(508, 50, 508, 558); oWins();}
     // O 6, 4, 2 condition.
-    else if (arrayIncludes('6O', '4O', '2O')) { drawWinLine(100, 508, 510, 90); }
+    else if (arrayIncludes('6O', '4O', '2O')) { drawWinLine(100, 508, 510, 90); oWins();}
     // O 0, 4, 8 condition.
-    else if (arrayIncludes('0O', '4O', '8O')) { drawWinLine(100, 100, 520, 520); }
+    else if (arrayIncludes('0O', '4O', '8O')) { drawWinLine(100, 100, 520, 520); oWins();}
     //This condition checks for tie. If none of the above conditions register 
     // and 9 squares are selected, the code executes.
     else if (selectedSquares.length >= 9) {
+        msgRef.innerHTML = "&#x1F60E; <br> It's a Draw";
         //This function plays the tie game sound
         audio('./media/tie2.mp3');
         //This function sets a .3 second timer before the resetGame is called.
@@ -220,4 +235,11 @@ function resetGame() {
 
 restartBtn.addEventListener("click", () => {
     setTimeout(function() { resetGame(); }, 1000);
+   
   });
+
+newgameBtn.addEventListener("click", () => {
+    setTimeout(function() { resetGame(); }, 1000);
+  
+  });
+
