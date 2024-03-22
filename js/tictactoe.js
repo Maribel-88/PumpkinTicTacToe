@@ -78,9 +78,15 @@ const xWins = () => {
     msgRef.innerHTML = "&#x1F389; <br> 'X' Wins";
 };
 
+
 const oWins = () => {
     popupRef.classList.remove("hide");
     msgRef.innerHTML = "&#x1F389; <br> 'O' Wins";
+};
+
+const xoDraw = () => {
+    popupRef.classList.remove("hide");
+    msgRef.innerHTML = "&#x1F389; <br> 'It's a draw!'";
 };
 //This function parses the selectedSquares array to search for the win conditions.
 //drawWinLine function is called to draw line if condition is met.
@@ -120,9 +126,10 @@ function checkWinConditions() {
     //This condition checks for tie. If none of the above conditions register 
     // and 9 squares are selected, the code executes.
     else if (selectedSquares.length >= 9) {
-        msgRef.innerHTML = "&#x1F60E; <br> It's a Draw";
+        
         //This function plays the tie game sound
         audio('./media/tie2.mp3');
+        xoDraw();
         //This function sets a .3 second timer before the resetGame is called.
         setTimeout(function() { resetGame(); }, 1000);
     }
