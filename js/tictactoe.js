@@ -76,17 +76,28 @@ function placeXOrO(squareNumber) {
 const xWins = () => {
     popupRef.classList.remove("hide");
     msgRef.innerHTML = "&#x1F389; <br> 'X' Wins";
+    document.querySelector("#new-game").addEventListener("click", function() {
+    popupRef.classList.add("hide");
+    })  
 };
 
 
 const oWins = () => {
     popupRef.classList.remove("hide");
     msgRef.innerHTML = "&#x1F389; <br> 'O' Wins";
+    document.querySelector("#new-game").addEventListener("click", function() {
+    popupRef.classList.add("hide");
+    })   
+
 };
 
 const xoDraw = () => {
     popupRef.classList.remove("hide");
     msgRef.innerHTML = "&#x1F389; <br> 'It's a draw!'";
+    document.querySelector("#new-game").addEventListener("click", function() {
+    popupRef.classList.add("hide");
+    })  
+       
 };
 //This function parses the selectedSquares array to search for the win conditions.
 //drawWinLine function is called to draw line if condition is met.
@@ -245,8 +256,8 @@ restartBtn.addEventListener("click", () => {
    
   });
 
-newgameBtn.addEventListener("click", () => {
-    setTimeout(function() { resetGame(); }, 1000);
-  
-  });
 
+  
+        
+  
+       
