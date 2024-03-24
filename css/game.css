@@ -1,75 +1,80 @@
 /*This container includes our table and our canvas.*/
 body {
-    background-color: #00c3ff
+  height: 100vh;
+  background: linear-gradient(135deg, #5c1bf4, #b504fa);
 }   
 .center-container {
-    position: absolute;
-    width:608px;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 50%;
+  
+  position: absolute;
+  width:408px;
+  height:408px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  
 }
 h1 {
-    text-align: center;
+  text-align: center;
 
 }
 table {
-    border-collapse: collapse;
-    border-style: hidden;
+  border-collapse: collapse;
+  border-style: hidden;
 }
 
 td {
-    cursor: pointer;
-    border: 8px solid rgba(30, 7, 241, 0.8);
-    padding: 0px;
-    width: 200px;
-    height: 200px;
+  cursor: pointer;
+  border: 8px solid rgba(30, 7, 241, 0.8);
+  padding: 0px;
+  width: 133px;
+  height: 133px;
 }
 
 canvas {
-    position: absolute;
-    z-index: 10;
-    pointer-events: none;
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  
 }
 
 #restart {
-    font-size: 1.3em;
-    padding: 1em;
-    border-radius: 8px;
-    background-color: #0a0027;
-    color: #ffffff;
-    border: none;
-    position: relative;
-    margin: 1.5em auto 0 auto;
-    display: block;
-  }
+  font-size: 1.3em;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #0a0027;
+  color: #ffffff;
+  border: none;
+  position: relative;
+  margin: 1.5em auto 0 auto;
+  display: block;
+}
 
-  .popup {
-    background: linear-gradient(135deg, #8052ec, #d161ff);
-    height: 100%;
-    width: 100%;
-    position:absolute;
-    display: flex;
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1em;
-    font-size: 12vmin;
-  }
-  #new-game {
-    font-size: 0.6em;
-    padding: 0.5em 1em;
-    background-color: #0a0027;
-    color: #ffffff;
-    border-radius: 0.2em;
-    border: none;
-  }
-  #message {
-    color: #ffffff;
-    text-align: center;
-    font-size: 1em;
-  }
-  .popup.hide {
-    display: none;
-  }
+.popup {
+  background: linear-gradient(135deg, #8052ec, #d161ff);
+  height: 100%;
+  width: 100%;
+  position:absolute;
+  display: flex;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+  font-size: 12vmin;
+}
+#new-game {
+  font-size: 0.6em;
+  padding: 0.5em 1em;
+  background-color: #0a0027;
+  color: #ffffff;
+  border-radius: 0.2em;
+  border: none;
+}
+#message {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1em;
+}
+.popup.hide {
+  display: none;
+}
