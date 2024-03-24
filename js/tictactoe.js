@@ -76,7 +76,7 @@ function placeXOrO(squareNumber) {
 const xWins = () => {
     audio('./media/youWin.mp3');
     popupRef.classList.remove("hide");
-    msgRef.innerHTML = "&#x1F389; <br> You Win";
+    msgRef.innerHTML = "&#x1F389; <br> You Win!";
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
     })  
@@ -86,7 +86,7 @@ const xWins = () => {
 const oWins = () => {
     audio('./media/youLose.mp3');
     popupRef.classList.remove("hide");
-    msgRef.innerHTML = "&#128531; <br> You Lose";
+    msgRef.innerHTML = "&#128531; <br> You Lose!";
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
     })   
@@ -96,7 +96,7 @@ const oWins = () => {
 const xoDraw = () => {
     audio('./media/angryDraw.mp3');
     popupRef.classList.remove("hide");
-    msgRef.innerHTML = "&#128565; <br> 'It's a draw!'";
+    msgRef.innerHTML = "&#128565; <br>'It's a draw!";
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
     })  

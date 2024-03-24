@@ -1,8 +1,10 @@
 /*This container includes our table and our canvas.*/
 body {
+  
   height: 100vh;
-  background: linear-gradient(135deg, #5c1bf4, #b504fa);
-}   
+  background: linear-gradient(135deg, #8052ec, #d161ff);
+}
+
 .center-container {
   
   position: absolute;
@@ -15,6 +17,7 @@ body {
 }
 h1 {
   text-align: center;
+  padding-top: 40px;
 
 }
 table {
@@ -50,7 +53,7 @@ canvas {
 }
 
 .popup {
-  background: linear-gradient(135deg, #8052ec, #d161ff);
+  background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
   height: 100%;
   width: 100%;
   position:absolute;
@@ -69,6 +72,7 @@ canvas {
   color: #ffffff;
   border-radius: 0.2em;
   border: none;
+ 
 }
 #message {
   color: #ffffff;
@@ -78,3 +82,76 @@ canvas {
 .popup.hide {
   display: none;
 }
+/*-------------------------Pop-up Message ------------------*/
+.popup2 {
+   
+
+  background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
+  width: 800px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Sit on top */
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  overflow: auto; /* Enable scroll if needed */
+  display: none;
+  border: 1px solid #888;
+    
+} 
+@media (max-width: 500px) {
+  .popup2 {
+      width: 350px;
+  }
+}
+
+
+.popup2 p {
+  font-size: 25px;
+  text-align:left;
+  margin: 20px 0;
+}
+
+#closePop
+{
+  display: block;
+  margin: 0 0 20px auto;
+  background-color: transparent;
+  font-size: 30px;
+  color: #c5c5c5;
+  border: none;
+  outline:none;
+  cursor: pointer;
+}
+
+#closePop:hover {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#websiteButton {
+  display: block;
+  width:150px;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  background-color:#bb0000;
+  color:#fff;
+  text-decoration: none;
+  padding: 5px 0;
+  border-radius: 10px;
+}
+
+#pop2Msg {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+}
+
+#playerInfo {
+  margin-left: 15px;;
+}
+

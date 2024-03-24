@@ -10,9 +10,14 @@
     </head>
 
     <body id="body">
-        <h1>TIC TAC TOE GAME</h1>
+        <div>
+            <h3>Player1 score board</h3>
+        </div>
+       
+        
         <!--This container is needed to overlay our canvas over our table.-->
         <div class="center-container">
+            <h1>TIC TAC TOE GAME</h1>
         <!--Note: Canvas width and height must be set within the element.-->
         <canvas id="win-lines" width="408" height="408"></canvas>
         <table>
@@ -35,12 +40,50 @@
         <button id="restart">Restart</button>
         
         </div>
-
+        
+        <div>
+            <h3>Player2 score board</h3>
+        </div>
+       
         <div class="popup hide">
             <p id="message">Sample Message</p>
             <button id="new-game">New Game</button>
         </div>
 
+        <div class="popup2" >
+            <button id="closePop">&times;</button>
+            <div class="row" id="pop2Msg">
+                    <div class="col-md-6"><img src="/images/xox.png" alt="bannerImg" class="img-fluid"></div>
+                    
+                    
+                    <div class="col-md-6" id="playerInfo">
+                        <label for="player1Name" class="form-label">Player1 Name:</label>
+                        <input type="email" class="form-control" id="player1Name" placeholder="Enter Your Name">
+
+                        <p>Choose Your Character:
+
+                        </p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="skullPirate">
+                            <label class="form-check-label" for="skullPirate">
+                              Skull Pirate
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="pumpkinHead" checked>
+                            <label class="form-check-label" for="pumpkinHead">
+                              Pumpkin Head
+                            </label>
+                          </div>
+                    </div>
+            
+            </div>
+             <script src="src/greeting.js"></script>
+             <p>For all orders and inquires please call <em>07535-719-467</em></p>
+             <a href="welcome.html" id="websiteButton">Go To Website</a>
+          </div>
+
         <script src="js/tictactoe.js"></script>
+        <script src="js/greeting.js"> </script>
     </body>
 </html>
