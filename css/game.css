@@ -155,3 +155,16 @@ canvas {
   margin-left: 15px;;
 }
 
+#saveButton {
+  margin-top: 30px;
+  background-color: aqua;
+}
+
+#playerboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+

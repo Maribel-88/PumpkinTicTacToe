@@ -1,3 +1,5 @@
+
+console.log()
 //this variable keeps track of who's turn it is.
 let activePlayer = 'X';
 //This array stores an array of moves. We use this to determine win conditions.
@@ -260,7 +262,11 @@ restartBtn.addEventListener("click", () => {
    
   });
 
+let saveButton = document.getElementById('saveButton');
 
+saveButton.addEventListener("click", () => {
+    document.querySelector(".popup2").style.display = "none";
+});
   
         
   

@@ -10,7 +10,9 @@ window.addEventListener("load", function(){
   document.querySelector("#closePop").addEventListener("click", function() {
     document.querySelector(".popup2").style.display = "none";
   })
-  
+
+ 
+
 var today = new Date();
 var hourNow = today.getHours();
 var greeting;
@@ -26,5 +28,6 @@ if (hourNow > 18) {
 }
 
 document.write('<h3>' + greeting + '</h3>');
+
 
 
