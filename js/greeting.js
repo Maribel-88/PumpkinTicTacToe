@@ -3,7 +3,7 @@ window.addEventListener("load", function(){
         function open(event) {
             document.querySelector(".popup2").style.display = "block";
         },
-        1000
+       
     )
   })
   
@@ -18,16 +18,16 @@ var hourNow = today.getHours();
 var greeting;
 
 if (hourNow > 18) {
-    greeting = 'Good evening!';
+    greeting = 'Evening Twinkletoes!';
 } else if (hourNow > 12) {
-    greeting = 'Good afternoon!';
+    greeting = 'Afternoon Boggins!';
 } else if (hourNow > 0) {
-    greeting = 'Good morning!';
+    greeting = 'Morning Piggy!';
 } else {
     greeting = 'Welcome';
 }
 
-document.write('<h3>' + greeting + '</h3>');
+document.write('<h3 id="greeting">' + greeting + '</h3>');
 
 
 

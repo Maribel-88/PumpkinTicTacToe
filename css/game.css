@@ -64,7 +64,6 @@ canvas {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 1em;
   font-size: 12vmin;
 }
 #new-game {
@@ -85,35 +84,13 @@ canvas {
   display: none;
 }
 /*-------------------------Pop-up Message ------------------*/
-.popup2 {
-   
-
-  background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
-  width: 800px;
-  padding: 30px 40px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  z-index: 1; /* Sit on top */
-  left: 50%;
-  top: 50%;
-  border-radius: 8px;
-  font-family: "Poppins", sans-serif;
-  overflow: auto; /* Enable scroll if needed */
-  display: none;
-  border: 1px solid #888;
-    
-} 
-@media (max-width: 500px) {
-  .popup2 {
-      width: 350px;
-  }
-}
 
 
 .popup2 p {
-  font-size: 25px;
+  font-size: 20px;
   text-align:left;
-  margin: 20px 0;
+  margin-left: 20px;
+  
 }
 
 #closePop
@@ -134,33 +111,61 @@ canvas {
   cursor: pointer;
 }
 
-#websiteButton {
-  display: block;
-  width:150px;
-  position: relative;
-  margin: auto;
-  text-align: center;
-  background-color:#bb0000;
-  color:#fff;
-  text-decoration: none;
-  padding: 5px 0;
-  border-radius: 10px;
-}
+
 
 #pop2Msg {
   display: flex;
   flex-direction: row;
-  margin-left: 15px;
+  justify-content: space-around; 
+  
+}
+
+#xoxImage{
+  width:200px;
+  height:200px;
+}
+
+#greeting {
+  margin-left: 20px;
+  padding-top: 20px;
 }
 
 #playerInfo {
-  margin-left: 15px;;
+  margin:0 5px;
+ 
 }
 
 #saveButton {
   margin-top: 30px;
   background-color: aqua;
 }
+
+.popup2 {
+   
+
+  background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
+  background-color: #8052ec;
+  width: 600px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Sit on top */
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  /* overflow: auto; Enable scroll if needed */
+  display: flex;
+  border: 1px solid #888;
+  
+} 
+@media (max-width: 500px) {
+  .popup2 {
+      width: 350px;
+      height:400px;
+  }
+}
+
 
 #playerboard {
   display: flex;

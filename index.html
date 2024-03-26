@@ -25,9 +25,9 @@
         <canvas id="win-lines" width="408" height="408"></canvas>
         <table>
             <tr>
-                <td id='0' onclick='placeXOrO("0")' class="img-fluid"></td>
-                <td id='1' onclick='placeXOrO("1")' class="img-fluid"></td>
-                <td id='2' onclick='placeXOrO("2")'class="img-fluid"></td>
+                <td id='0' onclick='placeXOrO("0")'></td>
+                <td id='1' onclick='placeXOrO("1")'></td>
+                <td id='2' onclick='placeXOrO("2")'></td>
             </tr>
             <tr>
                 <td id='3' onclick='placeXOrO("3")'></td>
@@ -40,7 +40,7 @@
                 <td id='8' onclick='placeXOrO("8")'></td>
             </tr>
         </table>
-        <button id="restart">Restart</button>
+        <button onclick="clearCart()" id="restart">Clear</button>
         
         </div>
         
@@ -54,26 +54,27 @@
         <div class="popup2" >
             <button id="closePop">&times;</button>
             <div class="row" id="pop2Msg">
-                    <div class="col-md-6"><img src="/images/xox.png" alt="bannerImg" class="img-fluid"></div>
+
+                    <div class="col-md-4" ><img src="/images/xox.png" alt="bannerImg" id="xoxImage" ></div>
                     
                     
                     <div class="col-md-6" id="playerInfo">
                         <form >
                             <div>
-                            <label for="player-name">Enter your name:</label>
-                            <input type="text" name="player-name" required>
+                            <label for="playerName">Enter your name:</label>
+                            <input type="text" name="playerName" required>
                             </div>
                        
-                          <div>
-                            <label for="playerCharacter">Choose your character.</label>
-                            <select name="playerCharacter">
-                                <option>Skull Pirate</option>
-                                <option>Pumpkin Head</option>
-                            </select>
-                          </div>
-                          <div class="col-12">
-                            <button class="btn btn-primary" type="submit" id="saveButton"><a href="player.html">Save</a></button>
-                          </div>
+                            <div>
+                                <label for="playerCharacter">Choose your character.</label>
+                                <select name="playerCharacter">
+                                    <option>Skull Pirate</option>
+                                    <option>Pumpkin Head</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit" id="saveButton">Save</button>
+                            </div>
                         </form>  
                     </div>
             

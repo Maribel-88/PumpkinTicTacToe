@@ -268,6 +268,11 @@ saveButton.addEventListener("click", () => {
     document.querySelector(".popup2").style.display = "none";
 });
   
-        
+let clearCart = ()=>{
+    basket = [];
+    generatePlayerData();
+    localStorage.setItem("form", JSON.stringify(basket));
+   
+};       
   
        
