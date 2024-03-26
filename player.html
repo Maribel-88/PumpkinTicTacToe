@@ -14,7 +14,7 @@
             <div class="col-md-6" id="playerName">
                 <h3>Player1 score board</h3>
             </div>
-            <div class="col-md-6" id="player2Name">
+            <div class="col-md-6">
                 <h3>Player2 score board</h3>
             </div>
         </div>
@@ -40,7 +40,7 @@
                 <td id='8' onclick='placeXOrO("8")'></td>
             </tr>
         </table>
-        <button onclick="clearCart()" id="restart">Clear Game</button>
+        <button id="restart">Restart</button>
         
         </div>
         
@@ -54,34 +54,38 @@
         <div class="popup2" >
             <button id="closePop">&times;</button>
             <div class="row" id="pop2Msg">
-
-                    <div class="col-md-4" ><img src="/images/xox.png" alt="bannerImg" id="xoxImage" ></div>
-                    <div class="col-md-6">
-                        <form >
-                              <div class="row" id="userDetails">
-                              <div class="col-md-8">
-                                <label for="playerName1"  value="">Enter your name:</label>
-                                <input type="text" name="playerName1" id="firstPlayerName" required>
-                              </div>
-                              <div class="col-md-2">
-                                <button class="btn btn-primary" type="submit" id="userSaveBtn">Save</button>
-                              </div>
+                    <div class="col-md-6"><img src="/images/xox.png" alt="bannerImg" class="img-fluid"></div>
+                    
+                    
+                    <div class="col-md-6" id="playerInfo">
+                        <!-- <form >
+                            <div>
+                            <label for="player-name">Enter your name:</label>
+                            <input type="text" name="player-name" required>
                             </div>
-                        </form> <br>
-                    
-                        <div class="col-md-6" id="playerInfo"> </div>
-                        
-                    
+                       
+                          <div>
+                            <label for="playerCharacter">Choose your character.</label>
+                            <select name="playerCharacter">
+                                <option>Skull Pirate</option>
+                                <option>Pumpkin Head</option>
+                            </select>
+                          </div>
+                          <div class="col-12">
+                            <button class="btn btn-primary" type="submit" id="saveButton">Save</button>
+                          </div>
+                        </form>   -->
                     </div>
+            
             </div>
-             <script src="js/greeting.js"></script>
+            
              <p>I welcome you my little challenger!</p>
              
           </div>
 
         <script src="js/tictactoe.js"></script>
-        
+        <!-- <script src="js/greeting.js"></script>
         <script src="js/playerData.js"></script>
-
+         -->
     </body>
 </html>

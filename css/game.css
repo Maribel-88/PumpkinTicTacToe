@@ -131,7 +131,11 @@ canvas {
 }
 
 #playerInfo {
-  margin:0 5px;
+  display: grid;
+    grid-template-columns: repeat(2, 50px);
+    gap:60px;
+    justify-content: center;
+    margin:0 5px;
  
 }
 
@@ -174,4 +178,9 @@ canvas {
   margin-left: 20px;
   margin-right: 20px;
 }
-
+ 
+#userDetails {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}

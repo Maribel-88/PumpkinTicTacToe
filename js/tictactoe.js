@@ -257,22 +257,12 @@ function resetGame() {
     selectedSquares = [];
 }
 
-restartBtn.addEventListener("click", () => {
-    setTimeout(function() { resetGame(); }, 1000);
+// restartBtn.addEventListener("click", () => {
+//     setTimeout(function() { resetGame(); }, 1000);
    
-  });
+//   });
 
-let saveButton = document.getElementById('saveButton');
 
-saveButton.addEventListener("click", () => {
-    document.querySelector(".popup2").style.display = "none";
-});
-  
-let clearCart = ()=>{
-    basket = [];
-    generatePlayerData();
-    localStorage.setItem("form", JSON.stringify(basket));
-   
-};       
-  
+
+
        
