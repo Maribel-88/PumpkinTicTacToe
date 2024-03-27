@@ -64,6 +64,7 @@ generatePlayerData();
 
 
 let choosePlayer = (id) => {
+    
     let selectedPlayer= id;
     
     let playerImage= playerData.find((x)=> x.id === selectedPlayer.id);
@@ -88,11 +89,11 @@ let choosePlayer = (id) => {
   ` ; 
     return firstPlayer.innerHTML =
     `<div id=product-id-${id} class="item">
-        <h5>${firstPlayerData[0].playerName1} "the ${playerImage.name}"</h5>
+     
+     <img id="player1Image" width="50" height="50" src=${playerImage.img} alt="">
+        <h5 id="playerName">${firstPlayerData[0].playerName1} "the ${playerImage.name}"</h5>
        
-        <div class="details">
-         
-          <img width="50" height="50" src=${playerImage.img} alt="">
+       
           <div class="price-quantity">
            
             <div class="btn-group btn-group-sm " role="group" aria-label="Basic example">
@@ -108,4 +109,4 @@ let choosePlayer = (id) => {
     }
     choosePlayer();
     
-    
+   
