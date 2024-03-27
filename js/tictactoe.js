@@ -1,5 +1,5 @@
 
-console.log()
+
 //this variable keeps track of who's turn it is.
 let activePlayer = 'X';
 //This array stores an array of moves. We use this to determine win conditions.
@@ -20,11 +20,11 @@ function placeXOrO(squareNumber) {
         //This condition checks who's turn it is
         if (activePlayer==='X') {
         //If activePlayer is equal to 'X', the x.png is placed in HTML.
-            select.style.backgroundImage = 'url("images/x2.png")';
+            select.style.backgroundImage = document.getElementById('player1Image').value;
         // Active player may only be 'X' or 'O' so, if not 'X' it must be 'O'    
         } else {
         //if activePlayer is equal to 'O', the o.png is placed in HTML     
-            select.style.backgroundImage = ' url("images/o2.png")';
+            select.style.backgroundImage = document.getElementById('player2Image').value;
         }
         //squareNumber and activePlayer are concatenated together together and added to array.
         selectedSquares.push(squareNumber + activePlayer);
@@ -257,10 +257,10 @@ function resetGame() {
     selectedSquares = [];
 }
 
-// restartBtn.addEventListener("click", () => {
-//     setTimeout(function() { resetGame(); }, 1000);
+restartBtn.addEventListener("click", () => {
+    setTimeout(function() { resetGame(); }, 1000);
    
-//   });
+  });
 
 
 
