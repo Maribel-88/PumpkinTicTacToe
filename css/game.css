@@ -18,7 +18,7 @@ body {
 }
 h1 {
   text-align: center;
-  padding-top: 40px;
+  padding-top: 20px;
 
 }
 table {
@@ -66,6 +66,7 @@ canvas {
   justify-content: center;
   flex-direction: column;
   font-size: 12vmin;
+  margin-top: -50px;
 }
 #new-game {
   font-size: 0.6em;
@@ -74,12 +75,14 @@ canvas {
   color: #ffffff;
   border-radius: 0.2em;
   border: none;
+  margin-top: -50px;
  
 }
 #message {
   color: #ffffff;
   text-align: center;
   font-size: 1em;
+  margin-top: -70px;
 }
 .popup.hide {
   display: none;
@@ -118,6 +121,7 @@ canvas {
   display: flex;
   flex-direction: row;
   justify-content: space-around; 
+  margin-left: -45px;
   
 }
 
@@ -125,6 +129,28 @@ canvas {
   width:200px;
   height:200px;
 }
+
+label {
+  display: none;
+}
+
+#firstPlayerName{
+  width:150px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+#userSaveBtn {
+  height: 25px;
+  border-radius: 5px;
+}
+
+.choose:active {
+  transform: translateY(2px);
+  border-radius: 2px;
+}
+
+
 
 #greeting {
   margin-left: 20px;
@@ -140,10 +166,7 @@ canvas {
  
 }
 
-#saveButton {
-  margin-top: 30px;
-  background-color: aqua;
-}
+
 
 .popup2 {
    
