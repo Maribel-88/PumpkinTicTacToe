@@ -6,17 +6,17 @@
         <title>MY TIC TAC TOE</title>
         <meta charset='UTF-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        
     </head>
 
     <body id="body">
         <!--This players character board-->
         <div class="row" id="playerboard">
             <div class="col-md-6" id="playerName" >
-                <div id="player1Image"></div>
+                <div id="player1Image"> <img src="images/x2.png" alt=""/></div>
             </div>
             <div class="col-md-6" id="player2Name">
-                <div id="player2Image" ></div>
+                <div id="player2Image" ><img src="images/o2.png" alt=""/></div>
             </div>   
         </div>
         <!--This container is needed to overlay our canvas over our table.-->
@@ -41,6 +41,7 @@
                 <td id='8' onclick='placeXOrO("8")'></td>
             </tr>
         </table>
+
         <button  id="restart">Clear Game</button> 
         
         </div>
@@ -58,11 +59,16 @@
 
                     <div class="col-md-4 banner" ><img src="/images/xox.png" alt="bannerImg" id="xoxImage" ></div>
                     <div class="col-md-6 formDetails">
+
+                        <div class="col-md-6" id="playerInfo">
+                            <div id="userInfoPlayer1"></div>
+                            <div id="userInfoPlayer2"></div>
+                        </div>
                         <form >
                               <div class="row" id="userDetails">
                               <div class="col-md-8">
-                                <label for="playerName1"  value="">Enter name and Save:</label>
-                                <input type="text" name="playerName1" placeholder="Enter name and Save" maxlength="8" id="firstPlayerName" required>
+                                <label for="userName1"  value="">Enter name and Save:</label>
+                                <input type="text" name="userName1" placeholder="Enter name and Save" maxlength="8" id="firstPlayerName" required>
                               </div>
                               <div class="col-md-2">
                                 <button class="btn btn-primary" type="submit" id="userSaveBtn">Save</button>
@@ -70,7 +76,7 @@
                             </div>
                         </form> <br>
                     
-                        <div class="col-md-6" id="playerInfo"> </div>
+                        
                         
                     
                     </div>
@@ -81,8 +87,8 @@
           </div>
 
         
-        
-        <script src="js/playerData.js"></script>
+          
+      
         <script src="js/tictactoe.js"></script>
     </body>
 </html>

@@ -42,6 +42,19 @@ canvas {
   
 }
 
+.skull {
+  background-image: url(images/x2.png);
+}
+
+.pumpkin {
+  background-image: url(images/o2.png);
+}
+
+.skull,
+.pumpkin {
+  background-size: cover;
+}
+
 
 #restart {
   font-size: 1.3em;
@@ -89,6 +102,10 @@ canvas {
 }
 /*-------------------------Pop-up Message ------------------*/
 
+
+.popup2 {
+  display: none;
+}
 
 .popup2 p {
   font-size: 20px;
@@ -163,6 +180,7 @@ label {
     gap:60px;
     justify-content: center;
     margin:0 5px;
+    padding-bottom: 5px;
  
 }
 

@@ -1,22 +1,61 @@
 
 
 //this variable keeps track of who's turn it is.
-let activePlayer = 'X';
 
+
+let players = {
+    playerOne: { name:"" , characterName: "Skull Pirate" , img:"images/x2.png" , id:"fhgfdhrrvr", score: 0},
+    playerTwo: { name:"" , characterName: "Pumpkin Head" , img:"images/o2.png" , id:"fghtjtjtkh", score: 0}
+};
+let firstMove = 1;
+// let nextPlayer = players.playerOne.id;
+let pastPlayer;
+let playerWins = false;
 //This array stores an array of moves. We use this to determine win conditions.
-let selectedSquares = [];
-let restartBtn = document.getElementById("restart");
-let msgRef = document.getElementById("message");
-let newgameBtn = document.getElementById("new-game"); 
-let popupRef = document.querySelector(".popup");
-let userInfo = document.getElementById("playerInfo");
+const selectedSquares = [];
+const restartBtn = document.getElementById("restart");
+const msgRef = document.getElementById("message");
+const newgameBtn = document.getElementById("new-game"); 
+const userInfo = document.getElementById("userInfoPlayer2");
 let firstPlayer = document.getElementById("playerName");
 let secondPlayer = document.getElementById("player2Name");
-let userImage = document.getElementById('player1Image').value;
+const playerScore1 = document.getElementById('score1');
+const playerScore2 = document.getElementById('score2');
+let userInfoPlayer1 = document.getElementById('userInfoPlayer1');
+let playersFolder = [];//first player name data
+let player1Data = [];
+let popupRef = document.querySelector(".popup");
+let modal = document.getElementsByClassName('popup2');
+//push the user input , user name to firstPlayerData
+const addUser = (event)=>{
+    let user = {name:document.getElementById("firstPlayerName").value}
+    playersFolder.push(user);
+    document.forms[0].reset(); // to clear the form for the next entries      
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('userSaveBtn').addEventListener('click', addUser);
+});
 
 
-let playerFolder = []; //chosen character data is stored
-let firstPlayerData = []; // user name input is stored
+
+userInfo.innerHTML =`<div id=player-id-${players.playerTwo.id} class="item">
+                            <img width="50" height="50" src=${players.playerTwo.img} alt="">
+                            <div class="details">
+                            
+                            <button  id="${players.playerTwo.id}" type="button" class="btn btn-light choose" onclick="choosePumpkin(${players.playerTwo.id})">Choose</button>
+                            </div>
+                            </div>`;
+userInfoPlayer1.innerHTML =`<div id=player-id-${players.playerOne.id} class="item">
+                            <img width="50" height="50" src=${players.playerOne.img} alt="">
+                            <div class="details">
+                            
+                            <button  id="${players.playerOne.id}" type="button" class="btn btn-light choose" onclick="chooseSkull(${players.playerOne.id})">Choose</button>
+                            </div>
+                            </div>`;
+  
+  
+
 let playerData = [
     {
         id:"fhgfdhrrvr",
@@ -29,71 +68,67 @@ let playerData = [
         name:"Pumpkin Head",
         img:"images/o2.png"
     }
-  ];  
-  
+  ]; 
 
-//push the user input , user name to firstPlayerData
-const addUser = (event)=>{
-    let user = {playerName1:document.getElementById("firstPlayerName").value}
-    firstPlayerData.push(user);
-    document.forms[0].reset(); // to clear the form for the next entries      
-}
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    document.getElementById('userSaveBtn').addEventListener('click', addUser);
-});
-
-const generatePlayerData = () => {
-    return(userInfo.innerHTML = playerData.map((x)=>{
-            let {id, name, img } = x
-            return ` 
-                     <div id=player-id-${id} class="item">
-                            <img width="50" height="50" src=${img} alt="">
-                            <div class="details">
-                            <h3>${name}</h3>
-                            <button id=${id} type="button" class="btn btn-light choose" onclick="choosePlayer(${id})">Choose</button>
-                            </div>
-                     </div>
-  `;
-    }) .join("")); 
-};
-generatePlayerData(); 
-
-
-let choosePlayer = (id) => {
+  let chooseSkull = () => {
     
-    let selectedPlayer= id;
+    userInfoPlayer1.innerHTML =`<div id=player-id-${players.playerOne.id} class="item">
+    <img width="50" height="50" src=${players.playerOne.img} alt="">
+    <div class="details">
     
-    let playerImage= playerData.find((x)=> x.id === selectedPlayer.id);
-    playerFolder.push(playerImage);
-    let search = playerData.find((x)=> x.id !== selectedPlayer.id);
-    secondPlayer.innerHTML = 
-    `<div id=product-id-${id} class="item">
-        <h4>Random</h4>
-        <img width="50" height="50" src=${search.img} alt="">
-        <div class="details">
-          <h3 id="playerName2">${search.name}</h3>
-          <div id="score2">Score:</div>
-        </div>
-     </div>
-  ` ; 
-    return firstPlayer.innerHTML =
-    `<div id=product-id-${id} class="item">
-        <h4>${firstPlayerData[0].playerName1}</h4>
-        <img  width="50" height="50" src=${playerImage.img} alt="">
-        <div class="details">
-          <h3 id="playerName">${playerImage.name}</h3>
-          <div id="score1">Score:</div>
-        </div>
-     </div>
-  `
-        ;
+    <button  id="${players.playerOne.id}" type="button" class="btn btn-light choose" onclick="chooseSkull(${players.playerOne.id})">Choose</button>
+    </div>
+    </div>`;
+
+        
+    userInfo.innerHTML =`<div id=player-id-${players.playerTwo.id} class="item">
+    <img width="50" height="50" src=${players.playerTwo.img} alt="">
+    <div class="details">
+
+    <button  id="${players.playerTwo.id}" type="button" class="btn btn-light choose" onclick="choosePumpkin(${players.playerTwo.id})">Choose</button>
+    </div>
+    </div>`;
         
     }
     
-    choosePlayer();
+    chooseSkull();
+   
+    let choosePumpkin = (id) => {
+    
+        let selectedPlayer= id;
+        
+        let playerImage= playerData.find((x)=> x.id === selectedPlayer.id);
+        firstPlayer.innerHTML =
+        `<div id=product-id-${id} class="item">
+            <h4>${playersFolder[0].name}</h4>
+            <img  width="50" height="50" src=${playerImage.img} alt="">
+            <div class="details">
+              <h3 id="playerName">${playerImage.name}</h3>
+              <div id="score1">Score:</div>
+            </div>
+         </div>
+      `
+            ;
+        let search = playerData.find((x)=> x.id !== selectedPlayer.id);
+        player1Data.push(search);
+    
+    
+        secondPlayer.innerHTML = 
+        `<div id=product-id-${search.id} class="item">
+            <h4>Random</h4>
+            <img width="50" height="50" src=${search.img} alt="">
+            <div class="details">
+              <h3 id="playerName2">${search.name}</h3>
+              <div id="score2">Score:</div>
+            </div>
+         </div>
+      ` ; 
+        
+            
+        }
+        
+        choosePumpkin();
 
-console.log(userImage);
 //This function is for placing an x or o in a square.
 function placeXOrO(squareNumber) {
     //this condition ensures a square hasn't been selected already.
@@ -161,7 +196,7 @@ function placeXOrO(squareNumber) {
     }
 }
 
-const xWins = () => {
+let xWins = () => {
     audio('./media/youWin.mp3');
     popupRef.classList.remove("hide");
     msgRef.innerHTML = "&#x1F389; <br> You Win!";
@@ -169,9 +204,9 @@ const xWins = () => {
     popupRef.classList.add("hide");
     })  
 };
+xWins();
 
-
-const oWins = () => {
+let oWins = () => {
     audio('./media/youLose.mp3');
     popupRef.classList.remove("hide");
     msgRef.innerHTML = "&#128531; <br> You Lose!";
@@ -180,8 +215,9 @@ const oWins = () => {
     })   
 
 };
+oWins();
 
-const xoDraw = () => {
+let xoDraw = () => {
     audio('./media/angryDraw.mp3');
     popupRef.classList.remove("hide");
     msgRef.innerHTML = "&#128565; <br>'It's a draw!";
@@ -190,6 +226,7 @@ const xoDraw = () => {
     })  
        
 };
+xoDraw();
 //This function parses the selectedSquares array to search for the win conditions.
 //drawWinLine function is called to draw line if condition is met.
 function checkWinConditions() {
@@ -342,6 +379,7 @@ const resetGame = () => {
     }
     selectedSquares = [];
 }
+resetGame();
 
 restartBtn.addEventListener("click", () => {
     setTimeout(function() { resetGame(); }, 1000);
