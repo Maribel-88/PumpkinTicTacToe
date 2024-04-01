@@ -1,8 +1,8 @@
 
 
 //this variable keeps track of who's turn it is.
-
-
+let activePlayer = "";
+let selectedSquares = [];
 let players = {
     playerOne: { name:"" , characterName: "Skull Pirate" , img:"images/x2.png" , id:"fhgfdhrrvr", score: 0},
     playerTwo: { name:"" , characterName: "Pumpkin Head" , img:"images/o2.png" , id:"fghtjtjtkh", score: 0}
@@ -12,7 +12,7 @@ let firstMove = 1;
 let pastPlayer;
 let playerWins = false;
 //This array stores an array of moves. We use this to determine win conditions.
-const selectedSquares = [];
+
 const restartBtn = document.getElementById("restart");
 const msgRef = document.getElementById("message");
 const newgameBtn = document.getElementById("new-game"); 
@@ -37,7 +37,54 @@ document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('userSaveBtn').addEventListener('click', addUser);
 });
 
+const resetGame = () => {
+    for (let i = 0; i < 9; i++) {
+        //This for loop iterates through each HTML square element
+        let square = document.getElementById(String(i));
+        square.style.backgroundImage = '';
+    }
+    selectedSquares = [];
+}
+resetGame();
 
+let xWins = () => {
+    audio('./media/youWin.mp3');
+    popupRef.classList.remove("hide");
+    msgRef.innerHTML = "&#x1F389; <br> You Win!";
+    document.querySelector("#new-game").addEventListener("click", function() {
+    popupRef.classList.add("hide"); 
+    resetGame();
+    });
+  
+    
+};
+xWins();
+
+
+let oWins = () => {
+    audio('./media/youLose.mp3');
+    popupRef.classList.remove("hide");
+    msgRef.innerHTML = "&#128531; <br> You Lose!";
+    document.querySelector("#new-game").addEventListener("click", function() {
+    popupRef.classList.add("hide");
+    resetGame();
+    })   
+   
+};
+oWins();
+
+
+let xoDraw = () => {
+    audio('./media/angryDraw.mp3');
+    popupRef.classList.remove("hide");
+    msgRef.innerHTML = "&#128565; <br>'It's a draw!";
+    document.querySelector("#new-game").addEventListener("click", function() {
+    popupRef.classList.add("hide");
+    resetGame();
+    })  
+     
+};
+xoDraw();
 
 userInfo.innerHTML =`<div id=player-id-${players.playerTwo.id} class="item">
                             <img width="50" height="50" src=${players.playerTwo.img} alt="">
@@ -56,47 +103,46 @@ userInfoPlayer1.innerHTML =`<div id=player-id-${players.playerOne.id} class="ite
   
   
 
-let playerData = [
-    {
-        id:"fhgfdhrrvr",
-        name:"Skull Pirate",
-        img:"images/x2.png"
-    },
-  
-    {
-        id:"fghtjtjtkh",
-        name:"Pumpkin Head",
-        img:"images/o2.png"
-    }
-  ]; 
 
-  let chooseSkull = () => {
-    
-    userInfoPlayer1.innerHTML =`<div id=player-id-${players.playerOne.id} class="item">
-    <img width="50" height="50" src=${players.playerOne.img} alt="">
-    <div class="details">
-    
-    <button  id="${players.playerOne.id}" type="button" class="btn btn-light choose" onclick="chooseSkull(${players.playerOne.id})">Choose</button>
-    </div>
-    </div>`;
-
+  let chooseSkull = (id) => {
+    let selectedPlayer= id;
         
-    userInfo.innerHTML =`<div id=player-id-${players.playerTwo.id} class="item">
-    <img width="50" height="50" src=${players.playerTwo.img} alt="">
-    <div class="details">
-
-    <button  id="${players.playerTwo.id}" type="button" class="btn btn-light choose" onclick="choosePumpkin(${players.playerTwo.id})">Choose</button>
-    </div>
-    </div>`;
+        let playerImage= playerData.find((x)=> x.id === selectedPlayer.id);
+        firstPlayer.innerHTML =
+        `<div id=product-id-${id} class="item">
+            <h4>${playersFolder[0].name}</h4>
+            <img  width="50" height="50" src=${playerImage.img} alt="">
+            <div class="details">
+              <h3 id="playerName">${playerImage.name}</h3>
+              <div id="score1">Score:</div>
+            </div>
+         </div>
+      `
+            ;
+        let search = playerData.find((x)=> x.id !== selectedPlayer.id);
+        player1Data.push(search);
+    
+    
+        secondPlayer.innerHTML = 
+        `<div id=product-id-${search.id} class="item">
+            <h4>Random</h4>
+            <img width="50" height="50" src=${search.img} alt="">
+            <div class="details">
+              <h3 id="playerName2">${search.name}</h3>
+              <div id="score2">Score:</div>
+            </div>
+         </div>
+      ` ;
         
+     
+
     }
     
-    chooseSkull();
    
     let choosePumpkin = (id) => {
     
         let selectedPlayer= id;
-        
+       
         let playerImage= playerData.find((x)=> x.id === selectedPlayer.id);
         firstPlayer.innerHTML =
         `<div id=product-id-${id} class="item">
@@ -124,7 +170,11 @@ let playerData = [
          </div>
       ` ; 
         
-            
+if (selectedPlayer === id)
+      {activePlayer === "O";
+      placeXOrO();
+    }
+     
         }
         
         choosePumpkin();
@@ -140,10 +190,12 @@ function placeXOrO(squareNumber) {
         //This condition checks who's turn it is
         if (activePlayer==='X') {
             
+                select.style.backgroundImage = ' url("images/x2.png")';
+            
         //If activePlayer is equal to 'X', the x.png is placed in HTML.
-            select.style.backgroundImage = ' url("images/x2.png")';
+           
         // Active player may only be 'X' or 'O' so, if not 'X' it must be 'O'    
-        } else {
+         } else {
         //if activePlayer is equal to 'O', the o.png is placed in HTML     
             select.style.backgroundImage = ' url("images/o2.png")';
         }
@@ -196,37 +248,7 @@ function placeXOrO(squareNumber) {
     }
 }
 
-let xWins = () => {
-    audio('./media/youWin.mp3');
-    popupRef.classList.remove("hide");
-    msgRef.innerHTML = "&#x1F389; <br> You Win!";
-    document.querySelector("#new-game").addEventListener("click", function() {
-    popupRef.classList.add("hide");
-    })  
-};
-xWins();
 
-let oWins = () => {
-    audio('./media/youLose.mp3');
-    popupRef.classList.remove("hide");
-    msgRef.innerHTML = "&#128531; <br> You Lose!";
-    document.querySelector("#new-game").addEventListener("click", function() {
-    popupRef.classList.add("hide");
-    })   
-
-};
-oWins();
-
-let xoDraw = () => {
-    audio('./media/angryDraw.mp3');
-    popupRef.classList.remove("hide");
-    msgRef.innerHTML = "&#128565; <br>'It's a draw!";
-    document.querySelector("#new-game").addEventListener("click", function() {
-    popupRef.classList.add("hide");
-    })  
-       
-};
-xoDraw();
 //This function parses the selectedSquares array to search for the win conditions.
 //drawWinLine function is called to draw line if condition is met.
 function checkWinConditions() {
@@ -371,15 +393,7 @@ animateLineDrawing();
 setTimeout(function() {clear(); resetGame(); }, 1000);
 }
 //This function resets the game in a tie or a win.
-const resetGame = () => {
-    for (let i = 0; i < 9; i++) {
-        //This for loop iterates through each HTML square element
-        let square = document.getElementById(String(i));
-        square.style.backgroundImage = '';
-    }
-    selectedSquares = [];
-}
-resetGame();
+
 
 restartBtn.addEventListener("click", () => {
     setTimeout(function() { resetGame(); }, 1000);
