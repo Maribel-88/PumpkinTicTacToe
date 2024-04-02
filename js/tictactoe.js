@@ -65,9 +65,13 @@ const resetGame = () => {
 
 
 let xWins = () => {
+    
+        const winner =  players.playerOne;
+        winner.score += 1;
+        updateScores();
     audio('./media/youWin.mp3');
     popupRef.classList.remove("hide");
-    msgRef.innerHTML = "&#x1F389; <br> You Win!";
+    msgRef.innerHTML = `&#x1F389; <br> ${playersFolder[0].name} ${players.playerOne.characterName} <br> Wins!`;
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide"); 
     resetGame();
@@ -79,9 +83,12 @@ let xWins = () => {
 
 
 let oWins = () => {
+    const winner =  players.playerTwo;
+    winner.score += 1;
+    updateScores();
     audio('./media/youLose.mp3');
     popupRef.classList.remove("hide");
-    msgRef.innerHTML = "&#128531; <br> You Lose!";
+    msgRef.innerHTML = `&#128531; <br> ${playersFolder[0].name} ${players.playerOne.characterName} <br>  Loses!`;
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
     resetGame();
@@ -147,10 +154,10 @@ userInfoPlayer1.innerHTML =`<div id=player-id-${playerData[0].id} class="item">
         players.playerTwo.img = search.img;
         secondPlayer.innerHTML = 
         `<div id=product-id-${search.id} class="item">
-            <h4>Random</h4>
+            <h4>Champion</h4>
             <img width="50" height="50" src=${search.image} alt="">
             <div class="details">
-              <h3 id="playerName2">${search.name}</h3>
+              <h3 id="playerName2">${search.characterName}</h3>
               <div id="score2">Score:</div>
             </div>
          </div>
@@ -382,7 +389,10 @@ restartBtn.addEventListener("click", () => {
    
   });
 
-  
+  function updateScores() {
+    score1.innerHTML = `<h3>Score: ${players.playerOne.score}</h3>`
+    score2.innerHTML = `<h3>Score: ${players.playerTwo.score}</h3>`
+  }  
  
 
 

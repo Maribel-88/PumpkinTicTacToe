@@ -79,7 +79,7 @@ canvas {
   justify-content: center;
   flex-direction: column;
   font-size: 12vmin;
-  margin-top: -50px;
+  margin-top: 50px;
 }
 #new-game {
   font-size: 0.6em;
@@ -95,7 +95,7 @@ canvas {
   color: #ffffff;
   text-align: center;
   font-size: 1em;
-  margin-top: -70px;
+  margin-top: -190px;
 }
 .popup.hide {
   display: none;
@@ -188,7 +188,7 @@ label {
 
 .popup2 {
    
-
+  
   background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
   background-color: #8052ec;
   width: 600px;
