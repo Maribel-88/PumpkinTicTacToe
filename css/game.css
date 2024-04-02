@@ -180,7 +180,7 @@ label {
     gap:60px;
     justify-content: center;
     margin:0 5px;
-    padding-bottom: 5px;
+    padding-bottom: 50px;
  
 }
 
@@ -227,7 +227,3 @@ label {
   gap: 4px;
 }
 
-#player1Image {
-  width: 50px;
-  height: 50px;
-}

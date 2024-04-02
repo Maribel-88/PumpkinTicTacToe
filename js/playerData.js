@@ -1,16 +1,3 @@
-let playerData = [
-  {
-      id:"fhgfdhrrvr",
-      name:"Skull Pirate",
-      img:"images/x2.png"
-  },
-
-  {
-      id:"fghtjtjtkh",
-      name:"Pumpkin Head",
-      img:"images/o2.png"
-  }
-]; 
 
 /*
 //This function is for placing an x or o in a square.
