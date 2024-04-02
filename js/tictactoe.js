@@ -2,19 +2,15 @@
 
 //this variable keeps track of who's turn it is.
 let players = {
-    playerOne: { name:"" , characterName: "" , img:"" , id:"", score: 0},
-    playerTwo: { name:"" , characterName: "" , img:"" , id:"", score: 0}
+    playerOne: { name:"" , characterName: "" , img:"" , image: 'images/x2.png', id:"", score: 0},
+    playerTwo: { name:"" , characterName: "" , img:"" , image:'images/o2.png', id:"", score: 0}
 };
-activePlayer="";
-let X = players.playerOne.id;
-let O = players.playerOne.id;
-let nextPlayer = [];
+let activePlayer = 'X';
+
+
 let selectedSquares = [];
 
-let firstMove = 1;
-// let nextPlayer = players.playerOne.id;
-let pastPlayer;
-let playerWins = false;
+
 //This array stores an array of moves. We use this to determine win conditions.
 
 const restartBtn = document.getElementById("restart");
@@ -35,13 +31,15 @@ let playerData = [
     {
         id:"fhgfdhrrvr",
         characterName:"Skull Pirate",
-        img:"images/x2.png"
+        img:'url(images/x2.png)',
+        image:'images/x2.png'
     },
   
     {
         id:"fghtjtjtkh",
         characterName:"Pumpkin Head",
-        img:"images/o2.png"
+        img:'url(images/o2.png)',
+        image:'images/o2.png'
     }
   ]; 
   
@@ -106,14 +104,14 @@ let xoDraw = () => {
 
 
 userInfo.innerHTML =`<div id=player-id-${playerData[1].id} class="item">
-                            <img width="50" height="50" src=${playerData[1].img} alt="">
+                            <img width="50" height="50" src=${players.playerTwo.image} alt="">
                             <div class="details">
                             
                             <button  id="${playerData[1].id}" type="button" class="btn btn-light choose" onclick="chooseCharacter(${playerData[1].id})">Choose</button>
                             </div>
                             </div>`;
 userInfoPlayer1.innerHTML =`<div id=player-id-${playerData[0].id} class="item">
-                            <img width="50" height="50" src=${playerData[0].img} alt="">
+                            <img width="50" height="50" src=${players.playerOne.image} alt="">
                             <div class="details">
                             
                             <button  id="${playerData[0].id}" type="button" class="btn btn-light choose" onclick="chooseCharacter(${playerData[0].id})">Choose</button>
@@ -133,9 +131,9 @@ userInfoPlayer1.innerHTML =`<div id=player-id-${playerData[0].id} class="item">
         firstPlayer.innerHTML =
         `<div id=product-id-${id} class="item">
             <h4>${playersFolder[0].name}</h4>
-            <img  width="50" height="50" src=${playerImage.img} alt="">
+            <img  width="50" height="50" src=${playerImage.image} alt="">
             <div class="details">
-              <h3 id="playerName">${playerImage.name}</h3>
+              <h3 id="playerName">${playerImage.characterName}</h3>
               <div id="score1">Score:</div>
             </div>
          </div>
@@ -150,7 +148,7 @@ userInfoPlayer1.innerHTML =`<div id=player-id-${playerData[0].id} class="item">
         secondPlayer.innerHTML = 
         `<div id=product-id-${search.id} class="item">
             <h4>Random</h4>
-            <img width="50" height="50" src=${search.img} alt="">
+            <img width="50" height="50" src=${search.image} alt="">
             <div class="details">
               <h3 id="playerName2">${search.name}</h3>
               <div id="score2">Score:</div>
@@ -161,47 +159,11 @@ userInfoPlayer1.innerHTML =`<div id=player-id-${playerData[0].id} class="item">
      
 
     }
-    
-   
-//     let choosePumpkin = (id) => {
-    
-//         let selectedPlayer= id;
-       
-//         let playerImage= playerData.find((x)=> x.id === selectedPlayer.id);
-//         firstPlayer.innerHTML =
-//         `<div id=product-id-${id} class="item">
-//             <h4>${playersFolder[0].name}</h4>
-//             <img  width="50" height="50" src=${playerImage.img} alt="">
-//             <div class="details">
-//               <h3 id="playerName">${playerImage.name}</h3>
-//               <div id="score1">Score:</div>
-//             </div>
-//          </div>
-//       `
-//             ;
-//         let search = playerData.find((x)=> x.id !== selectedPlayer.id);
-//         player1Data.push(search);
-    
-    
-//         secondPlayer.innerHTML = 
-//         `<div id=product-id-${search.id} class="item">
-//             <h4>Random</h4>
-//             <img width="50" height="50" src=${search.img} alt="">
-//             <div class="details">
-//               <h3 id="playerName2">${search.name}</h3>
-//               <div id="score2">Score:</div>
-//             </div>
-//          </div>
-//       ` ; 
-        
-// if (selectedPlayer === id)
-//       {activePlayer === "O";
-//       placeXOrO();
-//     }
-     
-//         }
-        
-//         choosePumpkin();
+
+
+
+
+
 
 //This function is for placing an x or o in a square.
 function placeXOrO(squareNumber) {
@@ -212,35 +174,31 @@ function placeXOrO(squareNumber) {
         //This variable retrieves the html element id that was clicked.
         let select = document.getElementById(squareNumber);
         //This condition checks who's turn it is
-        if (activePlayer===fhgfdhrrvr) {
-            
-                select.style.backgroundImage = ' url("images/x2.png")';
-            
+        if (activePlayer === 'X') {
         //If activePlayer is equal to 'X', the x.png is placed in HTML.
-           
+            select.style.backgroundImage = players.playerOne.img ;
         // Active player may only be 'X' or 'O' so, if not 'X' it must be 'O'    
-         } else if (activePlayer===fghtjtjtkh){
+        } else {
         //if activePlayer is equal to 'O', the o.png is placed in HTML     
-            select.style.backgroundImage = ' url("images/o2.png")';
+            select.style.backgroundImage = players.playerTwo.img ;
         }
         //squareNumber and activePlayer are concatenated together together and added to array.
         selectedSquares.push(squareNumber + activePlayer);
         //This calls a fucntion to check for any win conditions.
         checkWinConditions();
-        
         //This condtion is for changing the active player.
-        if  (activePlayer===X) {
+        if  (activePlayer==='X') {
         //If active player is 'X' change it to 'O'.    
             activePlayer = 'O';
         //If active player is anything other than 'X'.    
-         } else if (activePlayer===O){
+         } else {
         //Change the activePlayer to 'X'.    
             activePlayer = 'X';
         }
         //This function plays placement sound.
         audio('./media/place2.mp3');
         //This condition checks to see if it is computers turn.
-        if(activePlayer===O) {
+        if (activePlayer=== 'O') {
         //This function disables clicking for computer choice
             disableClick();
         //This function waits 1 second before placing the image
