@@ -15,6 +15,7 @@ body {
   transform: translate(-50%, -50%);
   left: 50%;
   align-items: center;
+  margin-top: -50px;
 }
 h1 {
   text-align: center;
@@ -42,20 +43,11 @@ canvas {
   
 }
 
-.skull {
-  background-image: url(images/x2.png);
+#game_Instructions_Info{
+  margin-top: 30px;
+  text-align: center;
+  text-decoration: underline;
 }
-
-.pumpkin {
-  background-image: url(images/o2.png);
-}
-
-.skull,
-.pumpkin {
-  background-size: cover;
-}
-
-
 #restart {
   font-size: 1.3em;
   padding: 1em;
@@ -79,7 +71,7 @@ canvas {
   justify-content: center;
   flex-direction: column;
   font-size: 12vmin;
-  margin-top: 50px;
+  margin-top: -50px;
 }
 #new-game {
   font-size: 0.6em;

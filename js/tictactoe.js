@@ -3,7 +3,7 @@
 //this variable keeps track of who's turn it is.
 let players = {
     playerOne: { name:"" , characterName: "" , img:"" , image: 'images/x2.png', id:"", score: 0},
-    playerTwo: { name:"" , characterName: "" , img:"" , image:'images/o2.png', id:"", score: 0}
+    playerTwo: { name:"Champion" , characterName: "" , img:"" , image:'images/o2.png', id:"", score: 0}
 };
 let activePlayer = 'X';
 
@@ -26,7 +26,7 @@ let playersFolder = [];//first player name data
 let player1Data = [];
 let popupRef = document.querySelector(".popup");
 let modal = document.getElementsByClassName('popup2');
-
+const gameInstructionInfo = document.getElementById('game_Instructions_Info'); 
 let playerData = [
     {
         id:"fhgfdhrrvr",
@@ -135,6 +135,7 @@ userInfoPlayer1.innerHTML =`<div id=player-id-${playerData[0].id} class="item">
         players.playerOne.characterName = playerImage.characterName;
         players.playerOne.id = playerImage.id;
         players.playerOne.img = playerImage.img;
+        players.playerOne.name = playersFolder[0].name;
         firstPlayer.innerHTML =
         `<div id=product-id-${id} class="item">
             <h4>${playersFolder[0].name}</h4>
@@ -197,10 +198,15 @@ function placeXOrO(squareNumber) {
         if  (activePlayer==='X') {
         //If active player is 'X' change it to 'O'.    
             activePlayer = 'O';
+            gameInstructionInfo.innerHTML=`${players.playerTwo.name}'s turn`;
+            setTimeout(1000);
+           
         //If active player is anything other than 'X'.    
          } else {
         //Change the activePlayer to 'X'.    
             activePlayer = 'X';
+            gameInstructionInfo.innerHTML=`${players.playerOne.name}'s turn`;
+            setTimeout(1000);
         }
         //This function plays placement sound.
         audio('./media/place2.mp3');
@@ -278,8 +284,9 @@ function checkWinConditions() {
     else if (selectedSquares.length >= 9) {
         
         //This function plays the tie game sound
+        gameInstructionInfo.innerHTML=`${players.playerOne.name}'s turn`;
         audio('./media/tie.mp3');
-        
+        setTimeout(1000);
         xoDraw();
         //This function sets a .3 second timer before the resetGame is called.
         setTimeout(function() { resetGame(); }, 1000);
@@ -292,7 +299,7 @@ function checkWinConditions() {
         const b = selectedSquares.includes(squareB); 
         const c = selectedSquares.includes(squareC);
         /*If the 3 variables we pass are all included in our array true is
-        returned and our else if condtion executes the drawWinLine function.*/
+        returned and our else if condition executes the drawWinLine function.*/
         if (a === true && b === true && c === true) { return true; }
 
     }

@@ -41,8 +41,11 @@
                 <td id='8' onclick='placeXOrO("8")'></td>
             </tr>
         </table>
-
-        <button  id="restart">Clear Game</button> 
+        <div id="game_Instructions">
+            <h2 id="game_Instructions_Info" class="text center">Click the button to Restart</h2>
+            <button  id="restart">Clear Game</button> 
+          </div>
+        
         
         </div>
         
@@ -60,10 +63,7 @@
                     <div class="col-md-4 banner" ><img src="/images/xox.png" alt="bannerImg" id="xoxImage" ></div>
                     <div class="col-md-6 formDetails">
 
-                        <div class="col-md-6" id="playerInfo">
-                            <div id="userInfoPlayer1"></div>
-                            <div id="userInfoPlayer2"></div>
-                        </div>
+                        
                         <form >
                               <div class="row" id="userDetails">
                               <div class="col-md-8">
@@ -71,8 +71,13 @@
                                 <input type="text" name="userName1" placeholder="Enter name and Save" maxlength="8" id="firstPlayerName" required>
                               </div>
                               <div class="col-md-2">
-                                <button class="btn btn-primary" type="submit" id="userSaveBtn">Save</button>
+                                <button class="btn btn-primary" type="submit" id="userSaveBtn">Save</button><br><br>
                               </div>
+                             
+                            </div>
+                            <div class="col-md-6" id="playerInfo">
+                                <div id="userInfoPlayer1"></div>
+                                <div id="userInfoPlayer2"></div>
                             </div>
                         </form> <br>
                     
