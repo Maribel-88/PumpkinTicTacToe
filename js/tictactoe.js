@@ -2,8 +2,8 @@
 
 //this variable keeps track of who's turn it is.
 let players = {
-    playerOne: { name:"" , characterName: "" , img:"" , image: 'images/x2.png', id:"", score: 0},
-    playerTwo: { name:"Champion" , characterName: "" , img:"" , image:'images/o2.png', id:"", score: 0}
+    playerOne: { name:"" , characterName: "" , img:"" , image: "", id:"", score: 0},
+    playerTwo: { name:"" , characterName: "" , img:"" , image:"", id:"", score: 0}
 };
 let activePlayer = 'X';
 
@@ -22,25 +22,88 @@ let secondPlayer = document.getElementById("player2Name");
 const playerScore1 = document.getElementById('score1');
 const playerScore2 = document.getElementById('score2');
 let userInfoPlayer1 = document.getElementById('userInfoPlayer1');
+let playerInfo = document.getElementById('playerInfo');
 let playersFolder = [];//first player name data
 let player1Data = [];
 let popupRef = document.querySelector(".popup");
 let modal = document.getElementsByClassName('popup2');
 const gameInstructionInfo = document.getElementById('game_Instructions_Info'); 
 let playerData = [
+
+    {
+        id:"lofkgmusof",
+        characterName:"AmongUs Rainbow",
+        img:'url(images/rainbow.png)',
+        image:'images/rainbow.png',
+        name: "Raibow"
+    },
+
     {
         id:"fhgfdhrrvr",
         characterName:"Skull Pirate",
         img:'url(images/x2.png)',
-        image:'images/x2.png'
+        image:'images/x2.png',
+        name: "Jack Sparrow"
     },
   
     {
         id:"fghtjtjtkh",
         characterName:"Pumpkin Head",
         img:'url(images/o2.png)',
-        image:'images/o2.png'
-    }
+        image:'images/o2.png',
+        name: "Smashed"
+    },
+
+    {
+        id:"gfdbnrhjst",
+        characterName:"AmongUs Black",
+        img:'url(images/black.png)',
+        image:'images/black.png',
+        name: "Black Mamba"
+    },
+
+    {
+        id:"ldkjfindjs",
+        characterName:"Slasher",
+        img:'url(images/girl.png)',
+        image:'images/girl.png',
+        name: "Killer Blade"
+    },
+
+    {
+        id:"iodjgnelsf",
+        characterName:"AmongUs Orange",
+        img:'url(images/orange.png)',
+        image:'images/orange.png',
+        name: "Orange Head"
+    },
+
+    {
+        id:"ldjifnmkss",
+        characterName:"AmongUs OrangePlant",
+        img:'url(images/orangePlant.png)',
+        image:'images/orangePlant.png',
+        name: "Grut"
+    },
+
+    {
+        id:"pajfsnfkda",
+        characterName:"AmongUs Red",
+        img:'url(images/amongUsRed.png)',
+        image:'images/amongUsRed.png',
+        name: "Red Slayer"
+    },
+
+    {
+        id:"ierndlvndl",
+        characterName:"AmongUs Witch",
+        img:'url(images/AmongUsWitch.png)',
+        image:'images/AmongUsWitch.png',
+        name: "Witch Hunter"
+    },
+
+    
+
   ]; 
   
 //push the user input , user name to firstPlayerData
@@ -108,23 +171,24 @@ let xoDraw = () => {
     })  
      
 }
+//generates the characters images
+let generatePlayer = () => {
+    return (playerInfo.innerHTML = playerData.map((x)=>{
+        let { id,image } = x;
+        return `<div id=player-id-${id} class="item">
+        <img width="50" height="50" src=${image} alt="">
+        <div class="details">
+        
+        <button  id="${id}" type="button" class="btn btn-light choose" onclick="chooseCharacter(${id})">Choose</button>
+        </div>
+        </div>`;
+    }) 
+    .join(""));
+};
+
+generatePlayer();
 
 
-userInfo.innerHTML =`<div id=player-id-${playerData[1].id} class="item">
-                            <img width="50" height="50" src=${players.playerTwo.image} alt="">
-                            <div class="details">
-                            
-                            <button  id="${playerData[1].id}" type="button" class="btn btn-light choose" onclick="chooseCharacter(${playerData[1].id})">Choose</button>
-                            </div>
-                            </div>`;
-userInfoPlayer1.innerHTML =`<div id=player-id-${playerData[0].id} class="item">
-                            <img width="50" height="50" src=${players.playerOne.image} alt="">
-                            <div class="details">
-                            
-                            <button  id="${playerData[0].id}" type="button" class="btn btn-light choose" onclick="chooseCharacter(${playerData[0].id})">Choose</button>
-                            </div>
-                            </div>`;
-  
   
 
 
@@ -145,28 +209,32 @@ userInfoPlayer1.innerHTML =`<div id=player-id-${playerData[0].id} class="item">
               <div id="score1">Score:</div>
             </div>
          </div>
-      `
-            ;
-        let search = playerData.find((x)=> x.id !== selectedPlayer.id);
-        player1Data.push(search);
-       
-        players.playerTwo.characterName = search.characterName;
-        players.playerTwo.id = search.id;
-        players.playerTwo.img = search.img;
+      ` ;
+           
+   
+        const search = playerData.filter((x)=> x.id !== players.playerOne.id);
+        const randomCharacterIndex = Math.floor(Math.random()*search.length);
+        search[randomCharacterIndex].id;
+      
+        console.log(search[randomCharacterIndex].id);
+        players.playerTwo.characterName = search[randomCharacterIndex].characterName;
+        players.playerTwo.id = search[randomCharacterIndex].id;
+        players.playerTwo.img = search[randomCharacterIndex].img;
+        players.playerTwo.name = search[randomCharacterIndex].name;
         secondPlayer.innerHTML = 
-        `<div id=product-id-${search.id} class="item">
-            <h4>Champion</h4>
-            <img width="50" height="50" src=${search.image} alt="">
+        `<div id=product-id-${search[randomCharacterIndex].id} class="item">
+            <h4>${search[randomCharacterIndex].name}</h4>
+            <img width="50" height="50" src=${search[randomCharacterIndex].image} alt="">
             <div class="details">
-              <h3 id="playerName2">${search.characterName}</h3>
+              <h3 id="playerName2">${search[randomCharacterIndex].characterName}</h3>
               <div id="score2">Score:</div>
             </div>
          </div>
       ` ;
-        
+    }     
      
 
-    }
+   
 
 
 
@@ -284,7 +352,7 @@ function checkWinConditions() {
     else if (selectedSquares.length >= 9) {
         
         //This function plays the tie game sound
-        gameInstructionInfo.innerHTML=`${players.playerOne.name}'s turn`;
+       
         audio('./media/tie.mp3');
         setTimeout(1000);
         xoDraw();
