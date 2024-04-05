@@ -1,4 +1,4 @@
-## PumpkinTicTacToe
+## PumpkinTicTacToe(https://maribel-88.github.io/PumpkinTicTacToe/)
 
 Tic Tac Toe is one of the most popular games for software developer students. I chose to work on this game and put my personal touches on it.
 This game offers the option to be played with computer as second player. Also you can choose from different characters before starting the game.
@@ -89,7 +89,7 @@ This appears when the game is a draw.
 - Select Main brach for source
 - Once the main branch has been selected, the page will automatically refresh with a successful deployment notice.
 
-  Click to view the live link - 
+  Click to view the live link - **https://maribel-88.github.io/PumpkinTicTacToe/**
 
 
 ## Citation of Sources
