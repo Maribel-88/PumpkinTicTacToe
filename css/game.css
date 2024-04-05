@@ -43,12 +43,13 @@ canvas {
   pointer-events: none;
   
 }
-
+/*contains the info who's turn it is*/
 #game_Instructions_Info{
   margin-top: 30px;
   text-align: center;
   text-decoration: underline;
 }
+/*Clear game button*/
 #restart {
   font-size: 1.3em;
   padding: 1em;
@@ -60,7 +61,7 @@ canvas {
   margin: 1.5em auto 0 auto;
   display: block;
 }
-
+/*game results message holder, pops up every end game*/
 .popup {
   background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
   height: 100%;
@@ -74,6 +75,7 @@ canvas {
   font-size: 12vmin;
   margin-top: -50px;
 }
+/*new game button */
 #new-game {
   font-size: 0.6em;
   padding: 0.5em 1em;
@@ -84,21 +86,21 @@ canvas {
   margin-top: -50px;
  
 }
+/*info holder who wins*/
 #message {
   color: #ffffff;
   text-align: center;
   font-size: 1em;
   margin-top: -190px;
 }
+/*popup message hidden*/
 .popup.hide {
   display: none;
 }
 /*-------------------------Pop-up Message ------------------*/
 
 
-.popup2 {
-  display: none;
-}
+
 
 .popup2 p {
   font-size: 20px;

@@ -26,19 +26,19 @@
         <canvas id="win-lines" width="408" height="408"></canvas>
         <table> 
             <tr>
-                <td id='0' onclick='placeXOrO("0")'></td>
-                <td id='1' onclick='placeXOrO("1")'></td>
-                <td id='2' onclick='placeXOrO("2")'></td>
+                <td id='0' onclick='placingXOrO("0")'></td>
+                <td id='1' onclick='placingXOrO("1")'></td>
+                <td id='2' onclick='placingXOrO("2")'></td>
             </tr>
             <tr>
-                <td id='3' onclick='placeXOrO("3")'></td>
-                <td id='4' onclick='placeXOrO("4")'></td>
-                <td id='5' onclick='placeXOrO("5")'></td>
+                <td id='3' onclick='placingXOrO("3")'></td>
+                <td id='4' onclick='placingXOrO("4")'></td>
+                <td id='5' onclick='placingXOrO("5")'></td>
             </tr>
             <tr>
-                <td id='6' onclick='placeXOrO("6")'></td>
-                <td id='7' onclick='placeXOrO("7")'></td>
-                <td id='8' onclick='placeXOrO("8")'></td>
+                <td id='6' onclick='placingXOrO("6")'></td>
+                <td id='7' onclick='placingXOrO("7")'></td>
+                <td id='8' onclick='placingXOrO("8")'></td>
             </tr>
         </table>
         <div id="game_Instructions">
@@ -50,12 +50,12 @@
         </div>
         
         
-       
+       <!--popup message every end of each game-->
         <div class="popup hide">
             <p id="message">Sample Message</p>
             <button id="new-game">New Game</button>
         </div>
-
+        <!--popup message at the very start of the game-->
         <div class="popup2" >
             <button id="closePop">&times;</button>
             <div class="row" id="pop2Msg">
@@ -64,11 +64,12 @@
                     <div class="col-md-6 formDetails">
 
                         
-                        <form >
+                        <form class="was-validated">
                               <div class="row" id="userDetails">
-                              <div class="col-md-8">
-                                <label for="userName1"  value="">Enter name and Save:</label>
-                                <input type="text" name="userName1" placeholder="Enter name and Save" maxlength="8" id="firstPlayerName" required>
+                              <div class="col-md-8 ">
+                                <label for="firstPlayerName"  class="form-label">Enter name and Save:</label>
+                                <input type="text" class="form-control" name="firstPlayerName" placeholder="Enter name and Save" maxlength="8" id="firstPlayerName" required>
+                               
                               </div>
                               <div class="col-md-2">
                                 <button class="btn btn-primary" type="submit" id="userSaveBtn">Save</button><br><br>
@@ -76,8 +77,7 @@
                              
                             </div>
                             <div class="col-md-6" id="playerInfo">
-                                <div id="userInfoPlayer1"></div>
-                                <div id="userInfoPlayer2"></div>
+                                
                             </div>
                         </form> <br>
                     

@@ -1,33 +1,36 @@
 
-
-//this variable keeps track of who's turn it is.
+// this code assigns X to be the active player or to be the first to make a move in our game
+let activePlayer = 'X';
+// stores our players data
 let players = {
+// we pushed the user name input and character choice    
     playerOne: { name:"" , characterName: "" , img:"" , image: "", id:"", score: 0},
+//  pushed the generated random character to this object
     playerTwo: { name:"" , characterName: "" , img:"" , image:"", id:"", score: 0}
 };
-let activePlayer = 'X';
-
-
+// this holds all the selected squares by both players
+// This array stores an array of moves. We use this to determine win conditions.
 let selectedSquares = [];
-
-
-//This array stores an array of moves. We use this to determine win conditions.
-
+// this is for clear game button
 const restartBtn = document.getElementById("restart");
+// popup message containing the wins and draw messages
 const msgRef = document.getElementById("message");
+// start a new game after every end game
 const newgameBtn = document.getElementById("new-game"); 
-const userInfo = document.getElementById("userInfoPlayer2");
+// will contain the info(name, character, score) for player1 in html
 let firstPlayer = document.getElementById("playerName");
+// will contain the info(name, character, score) for player2 in html
 let secondPlayer = document.getElementById("player2Name");
-const playerScore1 = document.getElementById('score1');
-const playerScore2 = document.getElementById('score2');
-let userInfoPlayer1 = document.getElementById('userInfoPlayer1');
+// will hold info for both player1 and player2
 let playerInfo = document.getElementById('playerInfo');
 let playersFolder = [];//first player name data
-let player1Data = [];
+// contain the popup message every end of a game
 let popupRef = document.querySelector(".popup");
+// popup before starting the game
 let modal = document.getElementsByClassName('popup2');
+// will show who's turn it is
 const gameInstructionInfo = document.getElementById('game_Instructions_Info'); 
+// contains all the characters data
 let playerData = [
 
     {
@@ -110,13 +113,12 @@ let playerData = [
 const addUser = (event)=>{
     let user = {name:document.getElementById("firstPlayerName").value}
     playersFolder.push(user);
-    document.forms[0].reset(); // to clear the form for the next entries      
+    document.forms[0].reset(); // to clear the form for the next entries        
 }
-
 document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('userSaveBtn').addEventListener('click', addUser);
 });
-
+// restart a new game board
 const resetGame = () => {
     for (let i = 0; i < 9; i++) {
         //This for loop iterates through each HTML square element
@@ -126,25 +128,20 @@ const resetGame = () => {
     selectedSquares = [];
 }
 
-
+// popup message X winner 
 let xWins = () => {
-    
-        const winner =  players.playerOne;
-        winner.score += 1;
-        updateScores();
+    const winner =  players.playerOne;
+    winner.score += 1;
+    updateScores();
     audio('./media/youWin.mp3');
     popupRef.classList.remove("hide");
     msgRef.innerHTML = `&#x1F389; <br> ${playersFolder[0].name} ${players.playerOne.characterName} <br> Wins!`;
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide"); 
     resetGame();
-    });
-  
-    
+    });  
 }
-
-
-
+// popup message O winner 
 let oWins = () => {
     const winner =  players.playerTwo;
     winner.score += 1;
@@ -155,12 +152,9 @@ let oWins = () => {
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
     resetGame();
-    })   
-   
+    })    
 }
-
-
-
+// popup message when it's a draw
 let xoDraw = () => {
     audio('./media/angryDraw.mp3');
     popupRef.classList.remove("hide");
@@ -168,8 +162,7 @@ let xoDraw = () => {
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
     resetGame();
-    })  
-     
+    })      
 }
 //generates the characters images
 let generatePlayer = () => {
@@ -191,25 +184,25 @@ generatePlayer();
 
   
 
-
+// this generates both players info board in html
   let chooseCharacter = (id) => {
-    let selectedPlayer= id;
-        
+        let selectedPlayer= id;
         let playerImage= playerData.find((x)=> x.id === selectedPlayer.id);
         players.playerOne.characterName = playerImage.characterName;
         players.playerOne.id = playerImage.id;
         players.playerOne.img = playerImage.img;
         players.playerOne.name = playersFolder[0].name;
+        // player1
         firstPlayer.innerHTML =
-        `<div id=product-id-${id} class="item">
-            <h4>${playersFolder[0].name}</h4>
-            <img  width="50" height="50" src=${playerImage.image} alt="">
-            <div class="details">
-              <h3 id="playerName">${playerImage.characterName}</h3>
-              <div id="score1">Score:</div>
+            `<div id=product-id-${id} class="item">
+                <h4>${playersFolder[0].name}</h4>
+                <img  width="50" height="50" src=${playerImage.image} alt="">
+                <div class="details">
+                <h3 id="playerName">${playerImage.characterName}</h3>
+                <div id="score1">Score:</div>
+                </div>
             </div>
-         </div>
-      ` ;
+        ` ;
            
    
         const search = playerData.filter((x)=> x.id !== players.playerOne.id);
@@ -221,16 +214,17 @@ generatePlayer();
         players.playerTwo.id = search[randomCharacterIndex].id;
         players.playerTwo.img = search[randomCharacterIndex].img;
         players.playerTwo.name = search[randomCharacterIndex].name;
+        //player2
         secondPlayer.innerHTML = 
-        `<div id=product-id-${search[randomCharacterIndex].id} class="item">
-            <h4>${search[randomCharacterIndex].name}</h4>
-            <img width="50" height="50" src=${search[randomCharacterIndex].image} alt="">
-            <div class="details">
-              <h3 id="playerName2">${search[randomCharacterIndex].characterName}</h3>
-              <div id="score2">Score:</div>
+            `<div id=product-id-${search[randomCharacterIndex].id} class="item">
+                <h4>${search[randomCharacterIndex].name}</h4>
+                <img width="50" height="50" src=${search[randomCharacterIndex].image} alt="">
+                <div class="details">
+                <h3 id="playerName2">${search[randomCharacterIndex].characterName}</h3>
+                <div id="score2">Score:</div>
+                </div>
             </div>
-         </div>
-      ` ;
+        ` ;
     }     
      
 
@@ -242,7 +236,7 @@ generatePlayer();
 
 
 //This function is for placing an x or o in a square.
-function placeXOrO(squareNumber) {
+function placingXOrO(squareNumber) {
     //this condition ensures a square hasn't been selected already.
     // The .some() method is used to check each element of selectedSquare array to 
     //see if it contains the square number clicked on.
@@ -251,11 +245,11 @@ function placeXOrO(squareNumber) {
         let select = document.getElementById(squareNumber);
         //This condition checks who's turn it is
         if (activePlayer === 'X') {
-        //If activePlayer is equal to 'X', the x.png is placed in HTML.
+        //If activePlayer is equal to 'X', the players.playerOne.img is placed in HTML.
             select.style.backgroundImage = players.playerOne.img ;
         // Active player may only be 'X' or 'O' so, if not 'X' it must be 'O'    
         } else {
-        //if activePlayer is equal to 'O', the o.png is placed in HTML     
+        //if activePlayer is equal to 'O', the players.playerTwo.img is placed in HTML     
             select.style.backgroundImage = players.playerTwo.img ;
         }
         //squareNumber and activePlayer are concatenated together together and added to array.
@@ -267,14 +261,14 @@ function placeXOrO(squareNumber) {
         //If active player is 'X' change it to 'O'.    
             activePlayer = 'O';
             gameInstructionInfo.innerHTML=`${players.playerTwo.name}'s turn`;
-            setTimeout(1000);
+           
            
         //If active player is anything other than 'X'.    
          } else {
         //Change the activePlayer to 'X'.    
             activePlayer = 'X';
             gameInstructionInfo.innerHTML=`${players.playerOne.name}'s turn`;
-            setTimeout(1000);
+           
         }
         //This function plays placement sound.
         audio('./media/place2.mp3');
@@ -294,16 +288,16 @@ function placeXOrO(squareNumber) {
     //This boolean is needed for our while loop.    
         let success = false;
     //This variable stores a random number 0 -8    
-        let pickASquare;
+        let chooseASquare;
     //This condition allows our while loop to keep
     //trying if a square is selected already    
         while (!success) {
             //A random number between 0 and 8 is selected
-            pickASquare = String(Math.floor(Math.random()*9));
+            chooseASquare = String(Math.floor(Math.random()*9));
             //If the random number evaluates return true, the square hasn't been selected yet.
-            if (placeXOrO(pickASquare)) {
+            if (placingXOrO(chooseASquare)) {
                 //This line calls the function.
-                placeXOrO(pickASquare);
+                placingXOrO(chooseASquare);
                 //This changes our boolean and ends the loop.
                 success = true;
             };
@@ -312,8 +306,8 @@ function placeXOrO(squareNumber) {
 }
 
 
-//This function parses the selectedSquares array to search for the win conditions.
-//drawWinLine function is called to draw line if condition is met.
+/*This function parses the selectedSquares array to search for the win conditions.
+drawWinLine function is called to draw line if condition is met.*/
 function checkWinConditions() {
     //X 0, 1, 2 condition.
     if (arrayIncludes('0X', '1X', '2X',)) { drawWinLine(30, 68, 400, 68); setTimeout(function() { xWins();}, 1000); }
@@ -349,10 +343,8 @@ function checkWinConditions() {
     else if (arrayIncludes('0O', '4O', '8O')) { drawWinLine(70, 70, 380, 380); setTimeout(function() { oWins();}, 1000);}
     //This condition checks for tie. If none of the above conditions register 
     // and 9 squares are selected, the code executes.
-    else if (selectedSquares.length >= 9) {
-        
+    else if (selectedSquares.length >= 9) { 
         //This function plays the tie game sound
-       
         audio('./media/tie.mp3');
         setTimeout(1000);
         xoDraw();
