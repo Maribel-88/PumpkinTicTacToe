@@ -18,22 +18,29 @@ computer. At the below the table board is a div that contains information who's 
 there will be a sound indicating the placement of the character in the that box. At the end of each game there will be a popup message. It contains a message depending on the result of the game and this comes with sound too again depends
 on the result of the game. If player one wins the score will be added to its score board and if it's the second player wins the score will be added to second player's score board.
 
+---
+
 
 <div align="center"><img width="700" alt="winLine" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/619863ce-a2c6-41f4-9a0f-25fe300249f0">
 </div>
 ###The Win Line
 This line appears everytime there is a winner.
 
+---
 
 <div align="center"><img width="700" alt="winnerPopup" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/c88fcab3-efba-458c-9c82-2a5d81947132">
 </div>
 ### The Winner Popup Message. 
 This will appear everytime the player on wins.
 
+---
+
 <div align="center"><img width="700" alt="itsAdraw" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/84974464-aefd-4050-954e-e62824b2464f">
 </div>
 ### The Draw Popup Message
 This appears when the game is a draw.
+
+---
 
 ### Validator testing
 - HTML
@@ -41,20 +48,22 @@ This appears when the game is a draw.
     
      <div align="center"><img width="700" alt="w3Validator result" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/09916cdf-08c4-463c-8e34-815da862d78c"></div>
 
+---
 - CSS
     - No errors were found using the W3C CSS Validator
 
       
   <div align="center"><img width="700" alt="w3CSS Validator result" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/ba5b3b48-14a2-41c9-903b-0affed102950"></div>
+---
 
 - Website performance
     - Has used the Lighthouse to check the website performance for desktop.
       
       <div align="center"><img width="700" alt="lighthousePerformanceTest" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/1c6e015c-629f-489b-b4ce-7ab47afeb0b3"></div>
-      
+---  
     - Has used the Lighthouse to check the website performance for desktop.  
       <div align="center"><img width="700" alt="LighthouseEse_mobile" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/b93f77ba-3ff6-4c86-8345-5f4a74f3cb98"></div>
-      
+---      
 ## Testing Section Requirements
 
 
@@ -65,6 +74,7 @@ This appears when the game is a draw.
 | Close Button | When clicked , will close the popup message.| click the close button |  Closed the popup message |
 | Clear Game Button | When clicked , will start a new empty table .| click the Clear Game Button | Restart a new game |
 
+---
 ## Deployment
 #### This site was deployed through GitHub. The steps are as follows:
 - Navigate the settings on the GitHub repository.
@@ -73,7 +83,7 @@ This appears when the game is a draw.
 - Select Main brach for source
 - Once the main branch has been selected, the page will automatically refresh with a successful deployment notice.
 
-  Click to view the live link - **https://maribel-88.github.io/Maribelle-88.github.io/**
+  Click to view the live link - 
 
 
 ## Citation of Sources
