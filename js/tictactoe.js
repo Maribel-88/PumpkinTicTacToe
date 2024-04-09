@@ -30,6 +30,8 @@ let popupRef = document.querySelector(".popup");
 let modal = document.getElementsByClassName('popup2');
 // will show who's turn it is
 const gameInstructionInfo = document.getElementById('game_Instructions_Info'); 
+
+      
 // contains all the characters data
 let playerData = [
 
@@ -164,6 +166,9 @@ let xoDraw = () => {
     resetGame();
     })      
 }
+
+
+
 //generates the characters images
 let generatePlayer = () => {
     return (playerInfo.innerHTML = playerData.map((x)=>{
@@ -461,6 +466,6 @@ restartBtn.addEventListener("click", () => {
     score2.innerHTML = `<h3>Score: ${players.playerTwo.score}</h3>`
   }  
  
-
+module.exports = addUser;
 
        
