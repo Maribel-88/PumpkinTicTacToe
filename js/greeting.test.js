@@ -2,7 +2,8 @@
  * @jest-environment jsdom
  */
 
-const { generatePlayer} = require("./tictactoe");
+const { greeting } = require("./greeting");
+
 
 beforeAll(() => {
     let fs = require("fs");
@@ -12,9 +13,9 @@ beforeAll(() => {
     document.close();
 });
 
-describe("generatePlayer object contains all the optional chararcter choices", () => {
-    test("character image to show", () => {
-        expect("image" in generatePlayer).toBe(true);
+describe("greeting object contains correct message", () => {
+    test("score key exists", () => {
+        expect("score" in game).toBe(true);
     });
     
 });

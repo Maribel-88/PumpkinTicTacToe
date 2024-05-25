@@ -30,7 +30,7 @@ let popupRef = document.querySelector(".popup");
 let modal = document.getElementsByClassName('popup2');
 // will show who's turn it is
 const gameInstructionInfo = document.getElementById('game_Instructions_Info'); 
-
+let startButton = document.getElementById('closePop');
       
 // contains all the characters data
 let playerData = [
@@ -115,7 +115,12 @@ let playerData = [
 const addUser = (event)=>{
     let user = {name:document.getElementById("firstPlayerName").value}
     playersFolder.push(user);
-    document.forms[0].reset(); // to clear the form for the next entries        
+    document.forms[0].reset(); // to clear the form for the next entries  
+    
+    let inputName = document.getElementById("userDetails");
+    inputName.style.display= 'none';
+
+    
 }
 document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('userSaveBtn').addEventListener('click', addUser);
@@ -230,6 +235,7 @@ generatePlayer();
                 </div>
             </div>
         ` ;
+        startButton.style.visibility = "visible";
     }     
      
 
