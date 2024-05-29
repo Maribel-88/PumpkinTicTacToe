@@ -6,6 +6,11 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color:#fff;
+}
+
 .center-container {
   
   position: absolute;
@@ -49,8 +54,18 @@ canvas {
   text-align: center;
   text-decoration: underline;
 }
+
+#game_Instructions {
+  display :flex;
+  flex-direction: row;
+  justify-content: space-around; 
+
+
+}
 /*Clear game button*/
 #restart {
+  display: flex;
+  flex-direction: column;
   font-size: 1.3em;
   padding: 1em;
   border-radius: 8px;
@@ -59,7 +74,21 @@ canvas {
   border: none;
   position: relative;
   margin: 1.5em auto 0 auto;
-  display: block;
+  
+}
+
+#clearGame {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3em;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #0a0027;
+  color: #ffffff;
+  border: none;
+  position: relative;
+  margin: 1.5em auto 0 auto;
+ 
 }
 /*game results message holder, pops up every end game*/
 .popup {
@@ -153,22 +182,21 @@ canvas {
   
 }
 
-#xoxImage{
-  width:200px;
-  height:200px;
-}
+
 
 label {
   display: none;
 }
 
 #firstPlayerName{
+ 
   width:150px;
   height: 20px;
   border-radius: 5px;
 }
 
 #userSaveBtn {
+  
   height: 25px;
   border-radius: 5px;
 }
@@ -180,20 +208,22 @@ label {
 
 
 
-#greeting {
+#greeting, #welcomeGreeting {
  text-align: center;
   margin-left: 20px;
   margin-top: 40px;
 }
 
+
+
 #playerInfo {
-  display: grid;
+    display: grid;
     grid-template-columns: repeat(3, 50px);
     gap:20px;
     justify-content: center;
     margin:0 5px;
     padding-bottom: 30px;
-    
+   
  
 }
 
@@ -206,7 +236,7 @@ label {
   background-color: #8052ec;
   width: 600px;
   height: 800px;
-  padding: 30px 40px;
+  padding: 100px 40px;
   position: absolute;
   transform: translate(-50%, -50%);
   z-index: 1; /* Sit on top */

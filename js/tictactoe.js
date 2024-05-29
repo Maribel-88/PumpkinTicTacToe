@@ -12,7 +12,7 @@ let players = {
 // This array stores an array of moves. We use this to determine win conditions.
 let selectedSquares = [];
 // this is for clear game button
-const restartBtn = document.getElementById("restart");
+const clearGame = document.getElementById("clearGame");
 // popup message containing the wins and draw messages
 const msgRef = document.getElementById("message");
 // start a new game after every end game
@@ -134,6 +134,8 @@ const resetGame = () => {
     }
     selectedSquares = [];
 }
+
+
 
 // popup message X winner 
 let xWins = () => {
@@ -462,10 +464,12 @@ setTimeout(function() {clear(); resetGame(); }, 1000);
 //This function resets the game in a tie or a win.
 
 
-restartBtn.addEventListener("click", () => {
+clearGame.addEventListener("click", () => {
     setTimeout(function() { resetGame(); }, 1000);
    
   });
+
+
 
   function updateScores() {
     score1.innerHTML = `<h3>Score: ${players.playerOne.score}</h3>`
