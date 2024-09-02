@@ -229,15 +229,11 @@ label {
     justify-content: center;
     margin:0 5px;
     padding-bottom: 30px;
-   
- 
 }
 
 
 
-.popup2 {
-   
-  
+.popup2 { 
   background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
   width: 600px;
   height: 800px;
@@ -255,14 +251,14 @@ label {
   border: 1px solid #888;
   
 } 
-@media (max-width: 375px) {
+@media (max-width: 350px) {
   .center-container {
     width:max-content;
     height: max-content;
   }
   .popup2 {
       margin-top: 180px;
-      width: 200px;
+      width:max-content;
       height:600px;
   }
 
