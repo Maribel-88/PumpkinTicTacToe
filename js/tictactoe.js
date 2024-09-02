@@ -31,7 +31,8 @@ let modal = document.getElementsByClassName('popup2');
 // will show who's turn it is
 const gameInstructionInfo = document.getElementById('game_Instructions_Info'); 
 let startButton = document.getElementById('closePop');
-      
+let emptyAlert = document.getElementsByClassName ('choose');
+  
 // contains all the characters data
 let playerData = [
 
@@ -187,14 +188,15 @@ let generatePlayer = () => {
         <button  id="${id}" type="button" class="btn btn-light choose" onclick="chooseCharacter(${id})">Choose</button>
         </div>
         </div>`;
+       
+        
     }) 
     .join(""));
+    
 };
 
 generatePlayer();
 
-
-  
 
 // this generates both players info board in html
   let chooseCharacter = (id) => {
@@ -204,6 +206,8 @@ generatePlayer();
         players.playerOne.id = playerImage.id;
         players.playerOne.img = playerImage.img;
         players.playerOne.name = playersFolder[0].name;
+
+       
         // player1
         firstPlayer.innerHTML =
             `<div id=product-id-${id} class="item">

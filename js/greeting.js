@@ -30,4 +30,5 @@ if (hourNow > 18) {
 document.write('<h3 id="greeting">' + greeting + '</h3>');
 
 
+
 module.exports = { greeting };
