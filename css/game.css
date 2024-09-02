@@ -253,7 +253,7 @@ label {
 } 
 @media (max-width: 350px) {
 
-  .popup2 {
+  .popup2, .popup {
       margin-top: 180px;
       width:max-content;
       height:600px;
