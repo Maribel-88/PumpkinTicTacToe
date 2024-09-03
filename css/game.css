@@ -2,7 +2,7 @@
 body {
   
   height: 100vh;
-  background: linear-gradient(135deg, #8052ec, #d161ff);
+  background: #59cacf;
   margin: 0;
 }
 
@@ -20,7 +20,7 @@ a {
   transform: translate(-50%, -50%);
   left: 50%;
   align-items: center;
-  margin-top: -50px;
+  margin-top: 80px;
 }
 
 
