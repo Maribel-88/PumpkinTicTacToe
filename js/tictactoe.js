@@ -149,7 +149,7 @@ let xWins = () => {
     msgRef.innerHTML = `&#x1F389; <br> ${playersFolder[0].name} ${players.playerOne.characterName} <br> Wins!`;
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide"); 
-    clear();
+   
     resetGame();
     });  
 }
@@ -163,7 +163,7 @@ let oWins = () => {
     msgRef.innerHTML = `&#128531; <br> ${playersFolder[0].name} ${players.playerOne.characterName} <br>  Loses!`;
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
-    clear() ;
+   
     resetGame();
     })    
 }
@@ -174,7 +174,7 @@ let xoDraw = () => {
     msgRef.innerHTML = "&#128565; <br>'It's a draw!";
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
-    clear() ;
+    
     resetGame();
     })      
 }
@@ -333,35 +333,35 @@ function checkWinConditions() {
     //X 0, 1, 2 condition.
     if (arrayIncludes('0X', '1X', '2X')) { drawWinLine(30, 68, 400, 68); setTimeout(function() { xWins();}, 1000); }
     // X 3, 4, 5 condition.
-    else if (arrayIncludes('3X', '4X', '5X')) { drawWinLine(30, 204, 400, 204); setTimeout(function() { xWins();}, 1000); clear(); }
+    else if (arrayIncludes('3X', '4X', '5X')) { drawWinLine(30, 204, 400, 204); setTimeout(function() { xWins();}, 1000);}
     // X 6, 7, 8 condition.
-    else if (arrayIncludes('6X', '7X', '8X')) { drawWinLine(30, 340, 400, 340); setTimeout(function() { xWins();}, 1000); clear();}
+    else if (arrayIncludes('6X', '7X', '8X')) { drawWinLine(30, 340, 400, 340); setTimeout(function() { xWins();}, 1000);}
     // X 0, 3, 6 condition.
-    else if (arrayIncludes('0X', '3X', '6X')) { drawWinLine(60, 60, 60, 400); setTimeout(function() { xWins();}, 1000); clear();}
+    else if (arrayIncludes('0X', '3X', '6X')) { drawWinLine(60, 60, 60, 400); setTimeout(function() { xWins();}, 1000);}
     // X 1, 4, 7 condition.
-    else if (arrayIncludes('1X', '4X', '7X')) { drawWinLine(204, 30, 204, 400); setTimeout(function() { xWins();}, 1000); clear();}
+    else if (arrayIncludes('1X', '4X', '7X')) { drawWinLine(204, 30, 204, 400); setTimeout(function() { xWins();}, 1000);}
     // X 2, 5, 8 condition.
-    else if (arrayIncludes('2X', '5X', '8X')) { drawWinLine(340, 50, 340, 400); setTimeout(function() { xWins();}, 1000); clear();}
+    else if (arrayIncludes('2X', '5X', '8X')) { drawWinLine(340, 50, 340, 400); setTimeout(function() { xWins();}, 1000);}
     // X 6, 4, 2 condition.
-    else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine(30,380, 360, 60); setTimeout(function() { xWins();}, 1000); clear();}
+    else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine(30,380, 360, 60); setTimeout(function() { xWins();}, 1000);}
     // X 0, 4, 8 condition.
-    else if (arrayIncludes('0X', '4X', '8X')) { drawWinLine(70, 70, 380, 380); setTimeout(function() { xWins();}, 1000); clear();} 
+    else if (arrayIncludes('0X', '4X', '8X')) { drawWinLine(70, 70, 380, 380); setTimeout(function() { xWins();}, 1000);} 
     // O 0, 1, 2 condition.
-    else if (arrayIncludes('0O', '1O', '2O')) { drawWinLine(30, 68, 400, 68); setTimeout(function() { oWins();}, 1000); clear();}
+    else if (arrayIncludes('0O', '1O', '2O')) { drawWinLine(30, 68, 400, 68); setTimeout(function() { oWins();}, 1000);}
     // O 3, 4, 5 condition.
-    else if (arrayIncludes('3O', '4O', '5O')) { drawWinLine(30, 204, 400, 204); setTimeout(function() { oWins();}, 1000); clear();}
+    else if (arrayIncludes('3O', '4O', '5O')) { drawWinLine(30, 204, 400, 204); setTimeout(function() { oWins();}, 1000);}
     //O 6, 7, 8 condition.
-    else if (arrayIncludes('6O', '7O', '8O')) { drawWinLine(30, 340, 400, 340); setTimeout(function() { oWins();}, 1000); clear();}
+    else if (arrayIncludes('6O', '7O', '8O')) { drawWinLine(30, 340, 400, 340); setTimeout(function() { oWins();}, 1000);}
     // O 0, 3, 6 condition.
-    else if (arrayIncludes('0O', '3O', '6O')) { drawWinLine(60, 60, 60, 400); setTimeout(function() { oWins();}, 1000); clear();}
+    else if (arrayIncludes('0O', '3O', '6O')) { drawWinLine(60, 60, 60, 400); setTimeout(function() { oWins();}, 1000);}
      // O 1, 4, 7 condition.
-    else if (arrayIncludes('1O', '4O', '7O')) { drawWinLine(204, 30, 204, 400); setTimeout(function() { oWins();}, 1000); clear();}
+    else if (arrayIncludes('1O', '4O', '7O')) { drawWinLine(204, 30, 204, 400); setTimeout(function() { oWins();}, 1000);}
     // O 2, 5, 8 condition.
-    else if (arrayIncludes('2O', '5O', '8O')) {drawWinLine(340, 50, 340, 400); setTimeout(function() { oWins();}, 1000); clear();}
+    else if (arrayIncludes('2O', '5O', '8O')) {drawWinLine(340, 50, 340, 400); setTimeout(function() { oWins();}, 1000);}
     // O 6, 4, 2 condition.
-    else if (arrayIncludes('6O', '4O', '2O')) { drawWinLine(30,380, 360, 60); setTimeout(function() { oWins();}, 1000); clear();}
+    else if (arrayIncludes('6O', '4O', '2O')) { drawWinLine(30,380, 360, 60); setTimeout(function() { oWins();}, 1000);}
     // O 0, 4, 8 condition.
-    else if (arrayIncludes('0O', '4O', '8O')) { drawWinLine(70, 70, 380, 380); setTimeout(function() { oWins();}, 1000); clear();s}
+    else if (arrayIncludes('0O', '4O', '8O')) { drawWinLine(70, 70, 380, 380); setTimeout(function() { oWins();}, 1000);}
     //This condition checks for tie. If none of the above conditions register 
     // and 9 squares are selected, the code executes.
     else if (selectedSquares.length >= 9) { 
@@ -484,6 +484,5 @@ clearGame.addEventListener("click", () => {
     score2.innerHTML = `<h3>Score: ${players.playerTwo.score}</h3>`
   }  
  
-module.exports = addUser;
 
        

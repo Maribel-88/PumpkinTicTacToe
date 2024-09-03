@@ -31,4 +31,4 @@ document.write('<h3 id="greeting">' + greeting + '</h3>');
 
 
 
-module.exports = { greeting };
+

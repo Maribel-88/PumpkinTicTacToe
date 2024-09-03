@@ -21,31 +21,32 @@
         </div>
         <!--This container is needed to overlay our canvas over our table.-->
         <div class="center-container">
-            
+            <h1>TIC TAC TOE GAME</h1>
                <!-- Note: Canvas width and height must be set within the element. -->
-            <canvas id="win-lines" width="408" height="408"></canvas>
-                <table> 
-                    <tr>
-                        <td id='0' onclick='placingXOrO("0")'></td>
-                        <td id='1' onclick='placingXOrO("1")'></td>
-                        <td id='2' onclick='placingXOrO("2")'></td>
-                    </tr>
-                    <tr>
-                        <td id='3' onclick='placingXOrO("3")'></td>
-                        <td id='4' onclick='placingXOrO("4")'></td>
-                        <td id='5' onclick='placingXOrO("5")'></td>
-                    </tr>
-                    <tr>
-                        <td id='6' onclick='placingXOrO("6")'></td>
-                        <td id='7' onclick='placingXOrO("7")'></td>
-                        <td id='8' onclick='placingXOrO("8")'></td>
-                    </tr>
-                </table>
-            <h2 id="game_Instructions_Info" class="text center"></h2>
-            <div id="game_Instructions">
-                <div><button  id="restart"><a href="index.html">Restart</a></button></div>
-                <div><button  id="clearGame">Clear Game</button></div>
-            </div>
+        <canvas id="win-lines" width="408" height="408"></canvas>
+        <table> 
+            <tr>
+                <td id='0' onclick='placingXOrO("0")'></td>
+                <td id='1' onclick='placingXOrO("1")'></td>
+                <td id='2' onclick='placingXOrO("2")'></td>
+            </tr>
+            <tr>
+                <td id='3' onclick='placingXOrO("3")'></td>
+                <td id='4' onclick='placingXOrO("4")'></td>
+                <td id='5' onclick='placingXOrO("5")'></td>
+            </tr>
+            <tr>
+                <td id='6' onclick='placingXOrO("6")'></td>
+                <td id='7' onclick='placingXOrO("7")'></td>
+                <td id='8' onclick='placingXOrO("8")'></td>
+            </tr>
+        </table>
+        <h2 id="game_Instructions_Info" class="text center"></h2>
+        <div id="game_Instructions">
+            
+            <div><button  id="restart"><a href="index.html">Restart</a></button></div>
+            <div><button  id="clearGame">Clear Game</button></div>
+          </div>
         
         
         </div>
@@ -101,10 +102,8 @@
 
         
           <script src="js/tictactoe.js"></script>
-          
+          <script src="js/playerData.js"></script>
        
-          
-
        
     </body>
 </html>
