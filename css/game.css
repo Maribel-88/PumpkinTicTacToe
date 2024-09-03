@@ -234,8 +234,6 @@ label {
 
 
 .popup2 {
-   
-  
   background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
   background-color: #8052ec;
   width: 600px;
@@ -251,9 +249,8 @@ label {
   /* overflow: auto; Enable scroll if needed */
   display: flex;
   border: 1px solid #888;
-  
 } 
-@media (max-width: 360px) {
+@media (max-width: 500px) {
   .popup2 {
       margin-top: 80px;
       width: 350px;
