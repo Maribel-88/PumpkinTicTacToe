@@ -134,7 +134,7 @@ const resetGame = () => {
         square.style.backgroundImage = '';
     }
     selectedSquares = [];
-    clear();
+    
 }
 
 
@@ -149,6 +149,7 @@ let xWins = () => {
     msgRef.innerHTML = `&#x1F389; <br> ${playersFolder[0].name} ${players.playerOne.characterName} <br> Wins!`;
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide"); 
+    clear();
     resetGame();
     });  
 }
@@ -162,6 +163,7 @@ let oWins = () => {
     msgRef.innerHTML = `&#128531; <br> ${playersFolder[0].name} ${players.playerOne.characterName} <br>  Loses!`;
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
+    clear() ;
     resetGame();
     })    
 }
@@ -172,6 +174,7 @@ let xoDraw = () => {
     msgRef.innerHTML = "&#128565; <br>'It's a draw!";
     document.querySelector("#new-game").addEventListener("click", function() {
     popupRef.classList.add("hide");
+    clear() ;
     resetGame();
     })      
 }
