@@ -134,6 +134,7 @@ const resetGame = () => {
         square.style.backgroundImage = '';
     }
     selectedSquares = [];
+    clear();
 }
 
 
