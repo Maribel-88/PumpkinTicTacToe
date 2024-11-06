@@ -1,49 +1,122 @@
 /*This container includes our table and our canvas.*/
-body {
-  
-  height: 100vh;
-  background: #59cacf;
+* {
+  padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
+
+:root {
+  --orangeColor: #f2c14e;
+  --darkColor: #2d414b;
+}
+body {
+  background: rgb(61, 99, 218);
+  background: radial-gradient(
+    circle, 
+    rgb(18, 74, 245, 1) 0%,
+    rgb(133, 6, 147) 55%,
+    rgb(166, 166, 167, 1) 100%
+  );  
+  overflow-x: hidden;
+}
+
 
 a {
   text-decoration: none;
   color:#fff;
 }
 
-.center-container {
-  
-  position: absolute;
-  width:408px;
-  height:408px;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 50%;
+.main{
+  display: flex;
   align-items: center;
-  margin-top: 80px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 
+.fullContainer {
+  float: right;
+  flex-direction: column;
+  
+  
+}
+
+#playerName {
+  float: left;
+  margin-bottom: 20px;
+ 
+}
+
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.center-container h1 {
+  font-size: 3.5rem;
+  color:#fff;
+}
+
+#board { 
+  width:408px;
+  height:408px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  position:relative;
+}
+
+.box {
+  height: 120px;
+  width: 120px;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--darkColor);
+  background-color: var(--orangeColor);
+  font-weight: 500;
+  font-size: 4.5rem;
+  margin: 0.2rem 0.5rem;
+  box-shadow: 2px, 5px, 5px, 2px;
+  border-radius: 5px;
+
+}
+
+.popup {
+  position:absolute;
+  width:300px;
+  height:300px;
+  background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
+  border-radius: 4px;
+  box-shadow: 2px, 5px, 5px, 2px;
+}
+
+.popup div {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  z-index: 1000;
+}
+
+.modalbox p {
+  font-size: 2rem;
+}
 
 h1 {
   text-align: center;
   padding-top: 20px;
 
 }
-table {
-  border-collapse: collapse;
-  border-style: hidden;
-}
 
-td {
-  cursor: pointer;
-  border: 8px solid rgba(30, 7, 241, 0.8);
-  padding: 0px;
-  width: 133px;
-  height: 133px;
-  background-size:cover;
-  background-repeat: no-repeat;
-}
 
 canvas {
   position: absolute;
@@ -80,35 +153,6 @@ canvas {
   
 }
 
-#clearGame {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.3em;
-  padding: 1em;
-  border-radius: 8px;
-  background-color: #0a0027;
-  color: #ffffff;
-  border: none;
-  position: relative;
-  margin: 1.5em auto 0 auto;
- 
-}
-/*game results message holder, pops up every end game*/
-.popup {
-  background: linear-gradient(to bottom right, rgb(0, 145, 255), yellow);
-  height: 100%;
-  width: 100%;
-  position:absolute;
-  display: flex;
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-size: 12vmin;
-  margin-top: -50px;
-  padding-right: 20px;
-}
-/*new game button */
 #new-game {
   font-size: 0.6em;
   padding: 0.5em 1em;
@@ -153,6 +197,7 @@ canvas {
   
 }
 
+
 #closePop
 {
 
@@ -181,8 +226,8 @@ canvas {
   display: flex;
   flex-direction: row;
   justify-content: space-around; 
-  margin-left: -45px;
-  margin-top: 100px;
+  
+  margin-top: -80px;
   
 }
 
@@ -205,9 +250,15 @@ label {
   border-radius: 5px;
 }
 
+.formDetails {
+  height: 250px;
+}
 .choose:active {
   transform: translateY(2px);
   border-radius: 2px;
+}
+#greeting {
+  padding-top: 15px;
 }
 
 
@@ -218,6 +269,18 @@ label {
   margin-top: 40px;
 }
 
+#new-game {
+  margin-top: 80px;
+  margin-bottom: 10px;
+}
+
+#message {
+  margin-top: 30px;
+}
+
+#closePop {
+  margin-top: 45px;
+}
 
 
 #playerInfo {
@@ -238,10 +301,10 @@ label {
   background-color: #8052ec;
   width: 600px;
   height: 800px;
-  padding: 100px 40px;
+  padding: 150px 40px;
   position: absolute;
   transform: translate(-50%, -50%);
-  z-index: 1; /* Sit on top */
+  z-index: 100; /* Sit on top */
   left: 50%;
   top: 50%;
   border-radius: 8px;
@@ -252,14 +315,80 @@ label {
 } 
 @media (max-width: 500px) {
   .popup2 {
-      margin-top: 80px;
+      margin-top: 100px;
       width: 350px;
-      height:800px;
+      height:600px;
   }
 
   .popup {
-    width:max-content;
+    width:300px;
+
   }
+
+  #popupBox {
+    margin-top: -100px;
+  }
+
+  #playerboard{
+    margin-bottom: 0px;
+  }
+
+  #board, canvas { 
+    width:400px;
+    height:400px;
+    
+  }
+
+  canvas { 
+    width:400px;
+    height:400px;
+    margin-top: 80px;
+
+  }
+
+
+
+  .box {
+    height: 115px;
+    width: 115px;
+  }
+
+  #closePop {
+    margin-top: 35px;
+  }
+
+  #greeting,
+  #welcomeGreeting {
+    margin-top: 10px;
+  }
+
+  #new-game {
+    margin-top: 80px;
+    margin-bottom: 10px;
+  }
+
+  #message {
+    margin-top: 30px;
+  }
+
+ #pop2Msg {
+  padding-top: 50px;
+ }
+ 
+  
+  #playerName {
+    float: left;
+    padding-right: 20px;
+  }
+ #player2Name {
+  float: right;
+  
+ }
+  
+ .center-container {
+  margin-top: -80px;
+ }
+ 
 
 }
 
@@ -270,6 +399,7 @@ label {
   justify-content: space-between;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 100px;
 }
  
 #userDetails {
