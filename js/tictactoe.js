@@ -32,7 +32,8 @@ let modal = document.getElementsByClassName('popup2');
 const gameInstructionInfo = document.getElementById('game_Instructions_Info'); 
 let startButton = document.getElementById('closePop');
 let emptyAlert = document.getElementsByClassName ('choose');
-  
+let playerOneName = document.getElementById('playerOneName'); 
+
 // contains all the characters data
 let playerData = [
 
@@ -111,7 +112,12 @@ let playerData = [
     
 
   ]; 
-  
+
+const player = {
+    name:document.getElementById("firstPlayerName").value
+};
+document.getElementById("yourName").innerHTML = player.name;
+
 //push the user input , user name to firstPlayerData
 const addUser = (event)=>{
     let user = {name:document.getElementById("firstPlayerName").value}
@@ -119,13 +125,13 @@ const addUser = (event)=>{
     document.forms[0].reset(); // to clear the form for the next entries  
     
     let inputName = document.getElementById("userDetails");
-    inputName.style.display= 'none';
-
-    
+    inputName.style.display= 'none';    
 }
 document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('userSaveBtn').addEventListener('click', addUser);
 });
+
+
 // restart a new game board
 const resetGame = () => {
     for (let i = 0; i < 9; i++) {
@@ -144,6 +150,7 @@ let xWins = () => {
     const winner =  players.playerOne;
     winner.score += 1;
     updateScores();
+    disableClick();
     audio('./media/youWin.mp3');
     popupRef.classList.remove("hide");
     msgRef.innerHTML = `&#x1F389; <br> ${playersFolder[0].name} ${players.playerOne.characterName} <br> Wins!`;
@@ -158,6 +165,7 @@ let oWins = () => {
     const winner =  players.playerTwo;
     winner.score += 1;
     updateScores();
+    disableClick();
     audio('./media/youLose.mp3');
     popupRef.classList.remove("hide");
     msgRef.innerHTML = `&#128531; <br> ${playersFolder[0].name} ${players.playerOne.characterName} <br>  Loses!`;
@@ -170,6 +178,7 @@ let oWins = () => {
 // popup message when it's a draw
 let xoDraw = () => {
     audio('./media/angryDraw.mp3');
+    disableClick();
     popupRef.classList.remove("hide");
     msgRef.innerHTML = "&#128565; <br>'It's a draw!";
     document.querySelector("#new-game").addEventListener("click", function() {
@@ -185,12 +194,13 @@ let xoDraw = () => {
 let generatePlayer = () => {
     return (playerInfo.innerHTML = playerData.map((x)=>{
         let { id,image } = x;
-        return `<div id=player-id-${id} class="item">
-        <img width="50" height="50" src=${image} alt="">
-        <div class="details">
-        
-        <button  id="${id}" type="button" class="btn btn-light choose" onclick="chooseCharacter(${id})">Choose</button>
-        </div>
+        return `
+        <div id=player-id-${id} class="item">
+            <img width="50" height="50" src=${image} alt="">
+            <div class="details">
+                <button  id="${id}" type="button" class="btn btn-light choose" 
+                onclick="chooseCharacter(${id})">Choose</button>
+            </div>
         </div>`;
        
         
@@ -246,6 +256,7 @@ generatePlayer();
             </div>
         ` ;
         startButton.style.visibility = "visible";
+
     }     
      
 
