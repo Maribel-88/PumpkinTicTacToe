@@ -1,109 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/game.css"/>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/game.css">
         <title>MY TIC TAC TOE</title>
-        <meta charset='UTF-8'>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
     </head>
 
     <body id="body">
-        <!--This players character board-->
-        <div class="row" id="playerboard">
-            <div class="col-md-6" id="playerName" >
+        <div class="row main">
+        <div class="container fullContainer">
+            <div class="col-sm-4 col-md-6 " id="playerName" >
                 <!-- <div id="player1Image"> <img src="images/x2.png" alt=""/></div> -->
             </div>
-            <div class="col-md-6" id="player2Name">
+            <div class="col-sm-4 col-md-6" id="player2Name">
                 <!-- <div id="player2Image" ><img src="images/o2.png" alt=""/></div> -->
-            </div>   
-        </div>
-        <!--This container is needed to overlay our canvas over our table.-->
-        <div class="center-container">
+            </div>  
+         </div> 
+        <div class="col center-container ">
             <h1>TIC TAC TOE GAME</h1>
                <!-- Note: Canvas width and height must be set within the element. -->
-        <canvas id="win-lines" width="408" height="408"></canvas>
-        <table> 
-            <tr>
-                <td id='0' onclick='placingXOrO("0")'></td>
-                <td id='1' onclick='placingXOrO("1")'></td>
-                <td id='2' onclick='placingXOrO("2")'></td>
-            </tr>
-            <tr>
-                <td id='3' onclick='placingXOrO("3")'></td>
-                <td id='4' onclick='placingXOrO("4")'></td>
-                <td id='5' onclick='placingXOrO("5")'></td>
-            </tr>
-            <tr>
-                <td id='6' onclick='placingXOrO("6")'></td>
-                <td id='7' onclick='placingXOrO("7")'></td>
-                <td id='8' onclick='placingXOrO("8")'></td>
-            </tr>
-        </table>
-        <h2 id="game_Instructions_Info" class="text center"></h2>
-        <div id="game_Instructions">
+            <canvas id="win-lines" width="408" height="408"></canvas>
+            <div id="board"> 
+                <div id='0' class="box" onclick='placingXOrO("0")'></div>
+                <div id='1' class="box" onclick='placingXOrO("1")'></div>
+                <div id='2' class="box" onclick='placingXOrO("2")'></div>
+                <div id='3' class="box" onclick='placingXOrO("3")'></div>
+                <div id='4' class="box" onclick='placingXOrO("4")'></div>
+                <div id='5' class="box" onclick='placingXOrO("5")'></div>
+                <div id='6' class="box" onclick='placingXOrO("6")'></div>
+                <div id='7' class="box" onclick='placingXOrO("7")'></div>
+                <div id='8' class="box" onclick='placingXOrO("8")'></div>
             
-            <div><button  id="restart"><a href="index.html">Restart</a></button></div>
-            <div><button  id="clearGame">Clear Game</button></div>
-          </div>
-        
-        
+
+                <div class="popup hide">
+                    <div class="modalbox">
+                        <p id="message">Sample Message</p>
+                        <button id="new-game">New Game</button>
+                        <button  id="clearGame">Clear Game</button>
+                    </div>
+                </div>
+                
+             </div> 
+             <h2 id="game_Instructions_Info" class="text center"></h2>
+             
         </div>
-        
+    </div>
+    
         
        <!--popup message every end of each game-->
-        <div class="popup hide">
-            <p id="message">Sample Message</p>
-            <button id="new-game">New Game</button>
-        </div>
-        <!--popup message at the very start of the game-->
-        <div class="popup2" >
-           
-            <div class="row" id="pop2Msg">
-
-                   
-                    <div class="col-md-6 formDetails">
-
-                        
-                        <form class="was-validated">
-                              <div class="row" id="userDetails">
-                              <div class="col-md-8 ">
-                                <label for="firstPlayerName"  class="form-label">Enter name and Save:</label>
-                                <input type="text" class="form-control" name="firstPlayerName" placeholder="Enter name and Save" maxlength="8" id="firstPlayerName" required>
-                               
-                              </div>
-                              <div class="col-md-2">
-                                <button class="btn btn-primary" type="submit" id="userSaveBtn">Save</button><br><br>
-                              </div>
-
-                             
-                            </div>
-
-                            <div><h4>Choose your character:</h4></div>
-                            <div class="col-md-6" id="playerInfo">
-                                
-                            </div>
-                        </form> <br>
-                    
-                        
-                        
-                    
-                    </div>
-                    
-            </div>
-            <div>
-                <button id="closePop">Start</button>
-                </div>
-             <script src="js/greeting.js"></script>
-             <p id="welcomeGreeting">I welcome you my little challenger!</p>
-             
-          </div>
-
         
-          <script src="js/tictactoe.js"></script>
-          <script src="js/playerData.js"></script>
+       <!--popup message at the very start of the game-->
+       <div class="popup2 " >
+        <!--This players character board-->
+        <div id="popupBox">
+        
+            <div class="col-sm-4 col-md-6" id="yourName">
+                <!-- <div id="player2Image" ><img src="images/o2.png" alt=""/></div> -->
+            </div>  
        
+        <div class="row" id="pop2Msg">
+                <div class="col-md-6 formDetails">
+                    <form action="" >
+                        <div class="row" id="userDetails">
+                            <h4>Please enter your name</h4>
+                            <div class="col-md-8 ">
+                                <label for="firstPlayerName">Enter name and Save:</label>
+                                <input class="form-control form-control-sm" name="firstPlayerName"
+                                     type="text" placeholder="Enter name and Save"
+                                     aria-label=".form-control-sm example" id="firstPlayerName" required>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" type="submit" id="userSaveBtn">Save</button><br><br>
+                            </div>
+                        </div>   
+                    </form><br>        
+                        
+                        <div><h4>Choose your character:</h4></div><br>
+                        <div class="col-md-6" id="playerInfo">   
+                        </div>
+                    
+                </div>    
+        </div>
+    </div>
+        <div>
+            <a href="index.html"></a><button id="closePop">Start</button></a>
+        </div>
+         <script src="js/greeting.js"></script>
+         <p id="welcomeGreeting">I welcome you my little challenger!</p>
+         
+      </div>
+
+    
+      <script src="js/tictactoe.js"></script>
+      <script src="js/playerData.js"></script>
        
     </body>
 </html>
