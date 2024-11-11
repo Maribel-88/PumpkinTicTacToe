@@ -6,16 +6,15 @@
 }
 
 :root {
-  --orangeColor: #f2c14e;
-  --darkColor: #2d414b;
+--orangeColor: #e8b43b;
 }
 body {
   background: rgb(61, 99, 218);
   background: radial-gradient(
     circle, 
-    rgb(18, 74, 245, 1) 0%,
-    rgb(133, 6, 147) 55%,
-    rgb(166, 166, 167, 1) 100%
+    rgb(18, 230, 245) 0%,
+    rgb(6, 236, 133) 55%,
+    rgb(237, 160, 16) 100%
   );  
   overflow-x: hidden;
 }
@@ -288,7 +287,7 @@ label {
     grid-template-columns: repeat(3, 50px);
     gap:20px;
     justify-content: center;
-    margin:0 5px;
+    margin-top:-30px ;
     padding-bottom: 30px;
    
  
