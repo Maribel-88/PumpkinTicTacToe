@@ -13,7 +13,7 @@ your character, you have to close this popup by clicking on the x/close button.
 
 ---
 
-<div align="center"><img width="700" alt="index" src="https://github.com/user-attachments/assets/8dfb277c-4bb7-4556-9608-ab269dafca2a">
+<div align="center"><img width="700"  alt="index" src="https://github.com/user-attachments/assets/8dfb277c-4bb7-4556-9608-ab269dafca2a">
 </div>
 ### The Main page 
 After choosing you character , the player info board will be generated. On the top left corner will be your choosen character, which will be the player one. On the top right
@@ -27,21 +27,21 @@ player wins the score will be added to second player's score board.
 ---
 
 
-<div align="center"><img width="700" alt="winLine" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/619863ce-a2c6-41f4-9a0f-25fe300249f0">
+<div align="center"><img width="700" height="600" alt="line" src="https://github.com/user-attachments/assets/57d9854e-d1f4-4fcc-9ce7-e9d89d8464bd">
 </div>
 ###The Win Line
 This line appears everytime there is a winner.
 
 ---
 
-<div align="center"><img width="700" alt="winnerPopup" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/c88fcab3-efba-458c-9c82-2a5d81947132">
+<div align="center"><img width="700" alt="winner" src="https://github.com/user-attachments/assets/f98309be-9e0e-443a-ba69-0de82d7f97d4">
 </div>
 ### The Winner Popup Message. 
 This will appear everytime the player on wins.
 
 ---
 
-<div align="center"><img width="700" alt="itsAdraw" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/84974464-aefd-4050-954e-e62824b2464f">
+<div align="center"><img width="700" alt="draw" src="https://github.com/user-attachments/assets/ba8a4fd0-e28f-4075-be4a-1c73306ee206">
 </div>
 ### The Draw Popup Message
 This appears when the game is a draw.
