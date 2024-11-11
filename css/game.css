@@ -49,7 +49,6 @@ a {
 
 #playerName {
   float: left;
-  margin-bottom: 20px;
 }
 
 .center-container {
@@ -394,11 +393,6 @@ label {
  .center-container {
   margin-top: -80px;
  }
-
-  #playerName {
-  float: left;
-}
- 
 
 }
 
