@@ -360,7 +360,8 @@ label {
   }
 
   #closePop {
-    margin-top: 35px;
+    margin-bottom: 35px;
+    padding-top: 10px;
   }
 
   #greeting,
