@@ -5,7 +5,7 @@ This game offers the option to be played with computer as second player. Also yo
 
 ---
 
-<div align="center"><img width="700" alt="fisrtPage" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/09cc182e-4c74-4467-90cb-fc59059ed0fe">
+<div align="center"><img width="700" alt="main9" src="https://github.com/user-attachments/assets/e16a75fe-660b-4f47-9731-5ccf66b32689">
 </div>
 ### The Home page
 When you open the game a popup message will appear containing the greetings. You have to enter your name before choosing a character. After entering your name and choosing 
@@ -13,7 +13,7 @@ your character, you have to close this popup by clicking on the x/close button.
 
 ---
 
-<div align="center"><img width="700" alt="mainpage" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/efd96572-87b9-4268-b989-65a404a11bd4">
+<div align="center"><img width="700" alt="index" src="https://github.com/user-attachments/assets/8dfb277c-4bb7-4556-9608-ab269dafca2a">
 </div>
 ### The Main page 
 After choosing you character , the player info board will be generated. On the top left corner will be your choosen character, which will be the player one. On the top right
