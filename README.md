@@ -73,7 +73,7 @@ This appears when the game is a draw.
 
  ## UX/UI Section
  ### Site Goal
- Pumpkin-TicTacToe game  is a .
+ Pumpkin-TicTacToe game  is a single player game created with younger audience/user in mind. This is evident through the images use for the characters.
 
  #### Player should be able:
  - Input their name.
