@@ -1,3 +1,4 @@
+// Pop up contains the name input and character choices
 window.addEventListener("load", function(){
     this.setTimeout(
         function open(event) {
@@ -12,7 +13,7 @@ window.addEventListener("load", function(){
   })
 
  
-
+// Greetings that appear when window is loaded
 var today = new Date();
 var hourNow = today.getHours();
 var greeting;
