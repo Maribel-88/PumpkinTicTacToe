@@ -69,7 +69,23 @@ This appears when the game is a draw.
 ---  
     - Has used the Lighthouse to check the website performance for desktop.  
       <div align="center"><img width="700" alt="LighthouseEse_mobile" src="https://github.com/Maribel-88/PumpkinTicTacToe/assets/139706325/b93f77ba-3ff6-4c86-8345-5f4a74f3cb98"></div>
----      
+---   
+
+ ## UX/UI Section
+ ### Site Goal
+ Pumpkin-TicTacToe game  is a .
+
+ #### Player should be able:
+ - Input their name.
+ - Be able to choose their character for the game.
+ - Enjoy playing.
+ 
+#### Primary objective of the website is to let user enjoy the game even if they're alone.
+- The game is created for single player wherein gamer will be playing with the computer as their opponent in the game.
+- The game is very intuitive. This game can bel played by younger kids.
+
+---
+
 ## Testing Section Requirements
 
 
